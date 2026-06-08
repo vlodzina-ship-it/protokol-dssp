@@ -89,72 +89,71 @@ button{
 <div id="vystup"></div>
 
 <script>
-
-const data = {
+var data = {
     exekuce: {
         uvod: "Dluhová situace bývá dlouhodobě velmi zatěžující, ale je důležité začít ji řešit co nejdříve. Můžeme s Vámi projít možnosti odborného poradenství, podpory při hledání zaměstnání i další kroky, které mohou pomoci postupně stabilizovat Vaši finanční situaci.",
         oblasti: [
             {
                 id:"pracovni_motivace",
                 nazev:"Pracovní aktivita a motivace",
-                text:"Klientovi bylo vysvětleno, že legální pracovní aktivita může i přes probíhající exekuce nebo insolvenci přispět ke zlepšení jeho finanční a sociální situace. Bylo s ním projednáno, že pravidelný příjem ze zaměstnání může přinést větší finanční stabilitu, pracovní zkušenosti a vytvořit podmínky pro postupné řešení dluhové situace.\n\nZároveň byl klient informován o možnostech podpory zaměstnanosti a o významu pracovního bonusu v rámci DSSP, který může mít pozitivní dopad na celkovou finanční situaci domácnosti. Cílem poskytnutého poradenství je podpora dlouhodobé pracovní aktivity a motivace klienta k aktivnímu řešení jeho sociální a finanční situace."
+                text:"Klientovi bylo vysvětleno, že legální pracovní aktivita může i přes probíhající exekuce nebo insolvenci přispět ke zlepšení jeho finanční a sociální situace. Bylo s ním projednáno, že pravidelný příjem ze zaměstnání může přinést větší finanční stabilitu, pracovní zkušenosti a vytvořit podmínky pro postupné řešení dluhové situace.\n\nZároveň byl klient informován o možnostech podpory zaměstnanosti a o významu pracovního bonusu v rámci DSSP, který může mít pozitivní dopad na celkovou finanční situaci domácnosti."
             },
             {
                 id:"dluhove",
                 nazev:"Dluhové poradenství",
-                text:"Klientovi bylo doporučeno využití odborného dluhového poradenství za účelem lepší orientace v jeho dluhové situaci a nalezení vhodných možností jejího řešení. Byly s ním projednány možnosti komunikace s věřiteli, řešení exekučních řízení, případného oddlužení a další postupy vedoucí ke stabilizaci finanční situace.\n\nZároveň byl klient informován o významu aktivního přístupu k řešení dluhů a o dostupných poradenských službách. V případě zájmu byl klient nasměrován na organizace poskytující dluhové poradenství, zejména Osoblažský cech a Slezskou diakonii, případně na další dostupné poradenské služby v místě bydliště."
+                text:"Klientovi bylo doporučeno využití odborného dluhového poradenství za účelem lepší orientace v jeho dluhové situaci a nalezení vhodných možností jejího řešení. Byly s ním projednány možnosti komunikace s věřiteli, řešení exekučních řízení, případného oddlužení a další postupy vedoucí ke stabilizaci finanční situace.\n\nZároveň byl klient informován o významu aktivního přístupu k řešení dluhů a o dostupných poradenských službách. V případě zájmu byl klient nasměrován na organizace poskytující dluhové poradenství, zejména Osoblažský cech a Slezskou diakonii."
             },
             {
                 id:"socialni_exekuce",
                 nazev:"Sociální práce a návazná pomoc",
-                text:"Klientovi byla doporučena spolupráce se sociálním pracovníkem obce nebo nestátní neziskovou organizací, kteří mohou pomoci s orientací v systému sociální pomoci, řešením nepříznivé sociální situace a zprostředkováním návazných služeb. V rámci jednání byly s klientem projednány možnosti podpory vedoucí ke stabilizaci jeho sociální a finanční situace.\n\nZároveň byl klient informován o možnostech pomoci při stabilizaci bydlení a zajištění základních životních potřeb, například prostřednictvím sociálních služeb, potravinové nebo materiální pomoci či dalších forem podpory dostupných v místě bydliště. Součástí poradenství byla také podpora při komunikaci s věřiteli, exekutory a dalšími institucemi. Klient byl motivován k aktivní spolupráci a postupnému řešení své dluhové a sociální situace."
+                text:"Klientovi byla doporučena spolupráce se sociálním pracovníkem obce nebo nestátní neziskovou organizací, kteří mohou pomoci s orientací v systému sociální pomoci, řešením nepříznivé sociální situace a zprostředkováním návazných služeb.\n\nZároveň byl klient informován o možnostech pomoci při stabilizaci bydlení a zajištění základních životních potřeb. Součástí poradenství byla také podpora při komunikaci s věřiteli, exekutory a dalšími institucemi."
             }
         ]
     },
 
     vyzivne: {
-        uvod: "Klientovi bylo vysvětleno, že je důležité řešit otázku výživného oficiální cestou, aby bylo možné správně posoudit sociální situaci domácnosti a využít dostupné formy podpory. Zároveň byl klient informován o možnostech řešení nehrazeného výživného, náhradního výživného a dalších dostupných formách pomoci.",
+        uvod: "Klientovi bylo vysvětleno, že je důležité řešit otázku výživného oficiální cestou, aby bylo možné správně posoudit sociální situaci domácnosti a využít dostupné formy podpory.",
         oblasti: [
             {
                 id:"reseni_vyzivneho",
                 nazev:"Řešení výživného",
-                text:"Klientovi bylo vysvětleno, že řádně stanovené a vymahatelné výživné je důležité nejen pro zabezpečení potřeb dítěte, ale také pro správné posouzení nároku na dávkovou podporu. V případě, že dosud neexistuje soudní rozhodnutí nebo jiný vykonatelný titul k výživnému, byla s klientem projednána možnost soudního stanovení výživného.\n\nZároveň byl klient upozorněn, že neformální dohoda mezi rodiči bez soudního rozhodnutí může vést k započítávání tzv. fikce výživného dle platné legislativy, což může ovlivnit výši poskytované podpory."
+                text:"Klientovi bylo vysvětleno, že řádně stanovené a vymahatelné výživné je důležité nejen pro zabezpečení potřeb dítěte, ale také pro správné posouzení nároku na dávkovou podporu. V případě, že dosud neexistuje soudní rozhodnutí nebo jiný vykonatelný titul k výživnému, byla s klientem projednána možnost soudního stanovení výživného."
             },
             {
                 id:"nahradni_vyzivne",
                 nazev:"Náhradní výživné",
-                text:"Klientovi byla doporučena možnost podání žádosti o náhradní výživné v případech, kdy druhý rodič výživné nehradí vůbec nebo jej hradí pouze částečně. Současně byly klientovi srozumitelně vysvětleny podmínky nároku na tuto dávku, zejména nutnost existence soudně stanoveného výživného a aktivního vymáhání pohledávky vůči povinnému rodiči.\n\nZároveň byla klientovi poskytnuta základní orientace v postupu podání žádosti a potřebných podkladech."
+                text:"Klientovi byla doporučena možnost podání žádosti o náhradní výživné v případech, kdy druhý rodič výživné nehradí vůbec nebo jej hradí pouze částečně. Současně byly klientovi srozumitelně vysvětleny podmínky nároku na tuto dávku."
             },
             {
                 id:"ohrozeni_bydleni",
                 nazev:"Podpora při ohrožení bydlení",
-                text:"S klientem byla projednána jeho aktuální finanční a bytová situace, zejména s ohledem na případy, kdy je poskytováno náhradní výživné, avšak při posouzení nároku na dávkovou podporu je současně započítáváno soudem stanovené výživné ve vyšší částce. Klientovi bylo vysvětleno, že tato situace může významně ovlivnit rozpočet domácnosti a schopnost hradit náklady spojené s bydlením a zajištěním základních životních potřeb.\n\nV odůvodněných případech byla s klientem projednána možnost poskytnutí mimořádné okamžité pomoci, zejména pokud hrozí ztráta bydlení, vznik dluhů na bydlení nebo nezajištění základních životních potřeb domácnosti."
+                text:"S klientem byla projednána jeho aktuální finanční a bytová situace. V odůvodněných případech byla s klientem projednána možnost poskytnutí mimořádné okamžité pomoci, zejména pokud hrozí ztráta bydlení, vznik dluhů na bydlení nebo nezajištění základních životních potřeb domácnosti."
             },
             {
                 id:"socialni_vyzivne",
                 nazev:"Sociální práce a návazná pomoc",
-                text:"Klientovi byla doporučena spolupráce se sociálním pracovníkem obce nebo nestátní neziskovou organizací, kteří mohou poskytnout podporu při orientaci v systému sociální pomoci, řešení nepříznivé finanční situace a zprostředkování dalších návazných služeb.\n\nZároveň byl klient informován o možnosti využití sociálního poradenství, které může pomoci například při řešení dluhů, komunikaci s druhým rodičem, vymáhání výživného nebo stabilizaci celkové finanční situace domácnosti."
+                text:"Klientovi byla doporučena spolupráce se sociálním pracovníkem obce nebo nestátní neziskovou organizací, kteří mohou poskytnout podporu při orientaci v systému sociální pomoci, řešení nepříznivé finanční situace a zprostředkování dalších návazných služeb."
             }
         ]
     },
 
     ubytovna: {
-        uvod: "Současná forma bydlení může ovlivňovat výši podpory i celkovou stabilitu situace klienta. Je proto vhodné začít včas řešit možnosti vhodnějšího a dlouhodobějšího bydlení a současně hledat možnosti zvýšení příjmů domácnosti a další podpory.",
+        uvod: "Současná forma bydlení může ovlivňovat výši podpory i celkovou stabilitu situace klienta. Je proto vhodné začít včas řešit možnosti vhodnějšího a dlouhodobějšího bydlení.",
         oblasti: [
             {
                 id:"vhodnejsi_bydleni",
                 nazev:"Hledání vhodnějšího bydlení",
-                text:"S klientem byla projednána možnost zajištění stabilnějšího a standardního bydlení, zejména v případech, kdy aktuálně využívá ubytovací zařízení nebo pobytové sociální služby. Klientovi bylo vysvětleno, že vhodnější forma bydlení může přispět ke zlepšení jeho sociální situace, větší samostatnosti a dlouhodobé stabilizaci domácnosti.\n\nZároveň byl klient informován o možnosti spolupráce se sociálním pracovníkem obce nebo nestátní neziskovou organizací, kteří mohou pomoci s vyhledáváním vhodného bydlení, orientací v dostupných možnostech a zajištěním návazných služeb."
+                text:"S klientem byla projednána možnost zajištění stabilnějšího a standardního bydlení, zejména v případech, kdy aktuálně využívá ubytovací zařízení nebo pobytové sociální služby. Klientovi bylo vysvětleno, že vhodnější forma bydlení může přispět ke zlepšení jeho sociální situace."
             },
             {
                 id:"pracovni_aktivita",
                 nazev:"Pracovní aktivita",
-                text:"Klientovi bylo vysvětleno, že pracovní aktivita a legální, doložitelné příjmy mohou přispět ke zlepšení jeho finanční a sociální situace. Současně byl klient informován o tom, že pracovní aktivita může mít pozitivní vliv také na výši dávkové podpory prostřednictvím pracovního bonusu a dalších nástrojů podpory zaměstnanosti.\n\nZároveň byly s klientem projednány možnosti evidence na Úřadu práce ČR jako uchazeče o zaměstnání, možnosti rekvalifikací, zprostředkování zaměstnání a další pracovní příležitosti odpovídající jeho schopnostem, zkušenostem a aktuální životní situaci."
+                text:"Klientovi bylo vysvětleno, že pracovní aktivita a legální, doložitelné příjmy mohou přispět ke zlepšení jeho finanční a sociální situace. Zároveň byly s klientem projednány možnosti evidence na Úřadu práce ČR jako uchazeče o zaměstnání, možnosti rekvalifikací a zprostředkování zaměstnání."
             },
             {
                 id:"socialni_ubytovna",
                 nazev:"Sociální práce a návazná pomoc",
-                text:"Klientovi byla doporučena spolupráce se sociálními pracovníky obce za účelem řešení jeho nepříznivé sociální situace a zajištění potřebné návazné pomoci. Byly s ním projednány možnosti využití sociálních služeb a forem podpory, které mohou přispět ke stabilizaci jeho sociální, bytové a finanční situace.\n\nZároveň byl klient informován o možnosti využití služeb nestátních neziskových organizací a terénních sociálních služeb."
+                text:"Klientovi byla doporučena spolupráce se sociálními pracovníky obce za účelem řešení jeho nepříznivé sociální situace a zajištění potřebné návazné pomoci."
             }
         ]
     },
@@ -165,118 +164,103 @@ const data = {
             {
                 id:"zmena_prijmu",
                 nazev:"Změna příjmové situace po podání žádosti",
-                text:"Klientovi bylo srozumitelně vysvětleno, že výše dávky státní sociální podpory byla stanovena na základě příjmů z rozhodného období před podáním žádosti a že současná změna nebo ztráta příjmu se dosud nemusela promítnout do výše přiznané dávky. Bylo s ním projednáno, jakým způsobem může tato skutečnost ovlivnit aktuální finanční situaci domácnosti.\n\nZároveň byl klient informován o plánovaném přehodnocení dávky, při kterém budou zohledněny aktuálnější údaje o příjmech a nákladech domácnosti, a o možnosti následné úpravy výše poskytované podpory. V případě nepříznivé sociální situace byla s klientem projednána také možnost poskytnutí mimořádné okamžité pomoci a další dostupné formy podpory.\n\nSoučasně byl klient motivován k aktivní spolupráci s Úřadem práce ČR při řešení své sociální a pracovní situace."
+                text:"Klientovi bylo srozumitelně vysvětleno, že výše dávky státní sociální podpory byla stanovena na základě příjmů z rozhodného období před podáním žádosti a že současná změna nebo ztráta příjmu se dosud nemusela promítnout do výše přiznané dávky. V případě nepříznivé sociální situace byla s klientem projednána také možnost poskytnutí mimořádné okamžité pomoci."
             }
         ]
     }
 };
 
 function zobrazPoradenstvi(){
-    const skupina = document.getElementById("skupina").value;
-    const box = document.getElementById("oblasti");
+    var skupina = document.getElementById("skupina").value;
+    var box = document.getElementById("oblasti");
     box.innerHTML = "";
 
-    if(!skupina){
+    if(skupina === ""){
         box.style.display = "none";
         return;
     }
 
     box.style.display = "block";
-    box.innerHTML += "<h2>Oblast poradenství</h2>";
+    box.innerHTML = "<h2>Oblast poradenství</h2>";
 
-    data[skupina].oblasti.forEach(o => {
-        box.innerHTML += `
-            <div class="poradenstvi">
-                <label>
-                    <input type="checkbox" id="${o.id}" style="width:auto;">
-                    ${o.nazev}: ANO/NE
-                </label>
-                <label>Poznámka k této oblasti</label>
-                <textarea id="${o.id}_poznamka" placeholder="Volitelná poznámka pracovníka..."></textarea>
+    var oblasti = data[skupina].oblasti;
+
+    for(var i = 0; i < oblasti.length; i++){
+        var o = oblasti[i];
+
+        box.innerHTML +=
+            '<div class="poradenstvi">' +
+            '<label><input type="checkbox" id="' + o.id + '" style="width:auto;"> ' + o.nazev + ': ANO/NE</label>' +
+            '<label>Poznámka k této oblasti</label>' +
+            '<textarea id="' + o.id + '_poznamka" placeholder="Volitelná poznámka pracovníka..."></textarea>' +
 
 ```
-        </div>
-    `;
-});
+        '</div>';
+}
 ```
 
 }
 
 function generuj(){
+var datum = document.getElementById("datum").value;
+var misto = document.getElementById("misto").value;
+var jmeno = document.getElementById("jmeno").value;
+var narozeni = document.getElementById("narozeni").value;
+var adresa = document.getElementById("adresa").value;
 
 ```
-const datum = document.getElementById("datum").value;
-const misto = document.getElementById("misto").value;
-const jmeno = document.getElementById("jmeno").value;
-const narozeni = document.getElementById("narozeni").value;
-const adresa = document.getElementById("adresa").value;
+var skupinaSelect = document.getElementById("skupina");
+var skupinaKey = skupinaSelect.value;
+var skupinaText = skupinaSelect.options[skupinaSelect.selectedIndex].text;
 
-const skupinaSelect = document.getElementById("skupina");
-const skupinaKey = skupinaSelect.value;
-const skupinaText = skupinaSelect.options[skupinaSelect.selectedIndex].text;
+var textPoradenstvi = "";
 
-let textPoradenstvi = "";
-
-if(skupinaKey){
+if(skupinaKey !== ""){
     textPoradenstvi += "\n\n" + data[skupinaKey].uvod + "\n";
 
-    data[skupinaKey].oblasti.forEach(o => {
-        const checked = document.getElementById(o.id)?.checked;
-        const poznamka = document.getElementById(o.id + "_poznamka")?.value;
+    var oblasti = data[skupinaKey].oblasti;
 
-        if(checked){
-            textPoradenstvi += `\n\n${o.nazev}:\n${o.text}\n`;
+    for(var i = 0; i < oblasti.length; i++){
+        var o = oblasti[i];
+        var checkbox = document.getElementById(o.id);
+        var poznamka = document.getElementById(o.id + "_poznamka").value;
+
+        if(checkbox && checkbox.checked){
+            textPoradenstvi += "\n\n" + o.nazev + ":\n" + o.text + "\n";
 
             if(poznamka.trim() !== ""){
-                textPoradenstvi += `\nPoznámka pracovníka:\n${poznamka}\n`;
+                textPoradenstvi += "\nPoznámka pracovníka:\n" + poznamka + "\n";
             }
         }
-    });
+    }
 }
 
-document.getElementById("vystup").innerText = `
+document.getElementById("vystup").innerText =
 ```
 
-Úřad práce ČR – Kontaktní pracoviště Krnov
-
-Datum jednání: ${datum}
-Místo jednání: ${misto}
-
-P R O T O K O L
-
-ve smyslu ustanovení § 18 zákona č. 500/2004 Sb., správní řád, ve znění pozdějších předpisů
-
-Účastník řízení:
-
-Jméno a příjmení: ${jmeno}
-Datum narození: ${narozeni}
-Místo trvalého pobytu: ${adresa}
-
-Předmět jednání:
-Možnosti řešení nízké dávky DSSP
-
-Jmenovaný/á byl/a seznámen/a s rozhodnutím o DSSP, které mu/jí bylo srozumitelně vysvětleno.
-
-Identifikovaná ohrožená skupina:
-${skupinaText}
-
-${textPoradenstvi}
-
-Účastník řízení dle svého vyjádření všemu porozuměl.
-Účastník řízení si protokol přečetl a s jeho obsahem souhlasí.
-
-Jednání bylo ukončeno v ______ hodin.
-
-............................................
-oprávněná úřední osoba
-
-............................................
-účastník řízení
-
-`;
-}
-
-</script>
+"Úřad práce ČR – Kontaktní pracoviště Krnov\n\n" +
+"Datum jednání: " + datum + "\n" +
+"Místo jednání: " + misto + "\n\n" +
+"P R O T O K O L\n\n" +
+"ve smyslu ustanovení § 18 zákona č. 500/2004 Sb., správní řád, ve znění pozdějších předpisů\n\n" +
+"Účastník řízení:\n\n" +
+"Jméno a příjmení: " + jmeno + "\n" +
+"Datum narození: " + narozeni + "\n" +
+"Místo trvalého pobytu: " + adresa + "\n\n" +
+"Předmět jednání:\n" +
+"Možnosti řešení nízké dávky DSSP\n\n" +
+"Jmenovaný/á byl/a seznámen/a s rozhodnutím o DSSP, které mu/jí bylo srozumitelně vysvětleno.\n\n" +
+"Identifikovaná ohrožená skupina:\n" +
+skupinaText + "\n" +
+textPoradenstvi + "\n\n" +
+"Účastník řízení dle svého vyjádření všemu porozuměl.\n" +
+"Účastník řízení si protokol přečetl a s jeho obsahem souhlasí.\n\n" +
+"Jednání bylo ukončeno v ______ hodin.\n\n\n" +
+"............................................\n" +
+"oprávněná úřední osoba\n\n\n" +
+"............................................\n" +
+"účastník řízení";
+} </script>
 
 </body>
 </html>
