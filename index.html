@@ -8,7 +8,7 @@
 body{font-family:Arial,sans-serif;max-width:1000px;margin:auto;padding:20px}
 h1{text-align:center}
 label{display:block;margin-top:12px;font-weight:bold}
-input,textarea{width:100%;padding:8px;box-sizing:border-box}
+input,select,textarea{width:100%;padding:8px;box-sizing:border-box}
 textarea{height:70px}
 button{margin-top:15px;padding:10px 18px}
 .box{border:1px solid #ccc;background:#f9f9f9;padding:15px;margin-top:15px}
@@ -27,11 +27,11 @@ button{margin-top:15px;padding:10px 18px}
 
 <label>Datum jednání</label> <input type="date" id="datum">
 
-<label>Místo jednání</label>
-<select id="misto">
-  <option value="Osoblaha">Osoblaha</option>
-  <option value="Město Albrechtice">Město Albrechtice</option>
-  <option value="Krnov">Krnov</option>
+<label>Pracoviště</label> <select id="misto">
+
+<option value="Osoblaha">Osoblaha</option>
+<option value="Město Albrechtice">Město Albrechtice</option>
+<option value="Krnov">Krnov</option>
 </select>
 
 <label>Jméno a příjmení klienta</label> <input type="text" id="jmeno">
@@ -39,6 +39,8 @@ button{margin-top:15px;padding:10px 18px}
 <label>Datum narození</label> <input type="date" id="narozeni">
 
 <label>Adresa</label> <input type="text" id="adresa">
+
+<label>Čas ukončení jednání</label> <input type="time" id="casUkonceni">
 
 <div class="box">
 <h2>Rychlý výběr situace klienta</h2>
@@ -189,6 +191,7 @@ function generuj(){
   var jmeno = document.getElementById("jmeno").value;
   var narozeni = document.getElementById("narozeni").value;
   var adresa = document.getElementById("adresa").value;
+  var casUkonceni = document.getElementById("casUkonceni").value;
 
   var textPoradenstvi = "";
 
@@ -211,9 +214,9 @@ function generuj(){
 
   document.getElementById("vystup").innerText =
 "Úřad práce ČR – Kontaktní pracoviště Krnov\n" +
-"Č.j.: " + cj + "\n\n" +
-"Datum jednání: " + datum + "\n" +
-"Místo jednání: " + misto + "\n\n" +
+"Č.j.: " + cj + "\n" +
+"Pracoviště: " + misto + "\n\n" +
+"Datum jednání: " + datum + "\n\n" +
 "P R O T O K O L\n\n" +
 "ve smyslu ustanovení § 18 zákona č. 500/2004 Sb., správní řád, ve znění pozdějších předpisů\n\n" +
 "Účastník řízení:\n\n" +
@@ -227,7 +230,7 @@ function generuj(){
 textPoradenstvi + "\n" +
 "Účastník řízení dle svého vyjádření všemu porozuměl.\n" +
 "Účastník řízení si protokol přečetl a s jeho obsahem souhlasí.\n\n" +
-"Jednání bylo ukončeno v ______ hodin.\n\n\n" +
+"Jednání bylo ukončeno v " + casUkonceni + " hodin.\n\n\n" +
 "............................................\n" +
 "oprávněná úřední osoba\n\n\n" +
 "............................................\n" +
@@ -239,6 +242,18 @@ function vymaz(){
     location.reload();
   }
 }
+
+window.onload = function(){
+  var dnes = new Date();
+  var rok = dnes.getFullYear();
+  var mesic = String(dnes.getMonth() + 1).padStart(2, "0");
+  var den = String(dnes.getDate()).padStart(2, "0");
+  document.getElementById("datum").value = rok + "-" + mesic + "-" + den;
+
+  var h = String(dnes.getHours()).padStart(2, "0");
+  var m = String(dnes.getMinutes()).padStart(2, "0");
+  document.getElementById("casUkonceni").value = h + ":" + m;
+};
 </script>
 
 </body>
