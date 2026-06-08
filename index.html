@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="cs">
 <head>
 <meta charset="UTF-8">
@@ -25,16 +24,20 @@ button{margin-top:15px;padding:10px 18px}
 <label>Datum jednání</label>
 <input type="date" id="datum">
 
-<label>Místo jednání</label> <input type="text" id="misto" value="v Osoblaze">
+<label>Místo jednání</label>
+<input type="text" id="misto" value="v Osoblaze">
 
-<label>Jméno a příjmení klienta</label> <input type="text" id="jmeno">
+<label>Jméno a příjmení klienta</label>
+<input type="text" id="jmeno">
 
-<label>Datum narození</label> <input type="date" id="narozeni">
+<label>Datum narození</label>
+<input type="date" id="narozeni">
 
-<label>Adresa</label> <input type="text" id="adresa">
+<label>Adresa</label>
+<input type="text" id="adresa">
 
-<label>Identifikovaná ohrožená skupina</label> <select id="skupina" onchange="zobrazPoradenstvi()">
-
+<label>Identifikovaná ohrožená skupina</label>
+<select id="skupina" onchange="zobrazPoradenstvi()">
 <option value="">-- Vyberte skupinu --</option>
 <option value="exekuce">Klienti s exekucemi a dluhovou zátěží</option>
 <option value="vyzivne">Domácnosti s nehrazeným výživným</option>
@@ -44,8 +47,9 @@ button{margin-top:15px;padding:10px 18px}
 
 <div id="oblasti" class="box" style="display:none"></div>
 
-<button type="button" onclick="generuj()">Vygenerovat protokol</button> <button type="button" onclick="window.print()">Tisk / uložit jako PDF</button> <button type="button" onclick="location.reload()">Vymazat formulář</button>
-
+<button type="button" onclick="generuj()">Vygenerovat protokol</button>
+<button type="button" onclick="window.print()">Tisk / uložit jako PDF</button>
+<button type="button" onclick="location.reload()">Vymazat formulář</button>
 </form>
 
 <div id="vystup"></div>
@@ -109,54 +113,47 @@ function zobrazPoradenstvi(){
       "<label><input type='checkbox' id='" + id + "' style='width:auto'> " + nazev + ": ANO/NE</label>" +
       "<label>Poznámka</label>" +
       "<textarea id='" + id + "_poznamka'></textarea>" +
-
-```
-  "</div>";
-```
-
-}
+      "</div>";
+  }
 }
 
 function generuj(){
-var datum = document.getElementById("datum").value;
-var misto = document.getElementById("misto").value;
-var jmeno = document.getElementById("jmeno").value;
-var narozeni = document.getElementById("narozeni").value;
-var adresa = document.getElementById("adresa").value;
+  var datum = document.getElementById("datum").value;
+  var misto = document.getElementById("misto").value;
+  var jmeno = document.getElementById("jmeno").value;
+  var narozeni = document.getElementById("narozeni").value;
+  var adresa = document.getElementById("adresa").value;
 
-var select = document.getElementById("skupina");
-var key = select.value;
-var skupinaText = select.options[select.selectedIndex].text;
+  var select = document.getElementById("skupina");
+  var key = select.value;
+  var skupinaText = select.options[select.selectedIndex].text;
 
-var poradenstvi = "";
+  var poradenstvi = "";
 
-if(key !== ""){
-poradenstvi += "\n" + data[key].uvod + "\n";
+  if(key !== ""){
+    poradenstvi += "\n" + data[key].uvod + "\n";
 
-```
-var oblasti = data[key].oblasti;
+    var oblasti = data[key].oblasti;
 
-for(var i=0;i<oblasti.length;i++){
-  var id = oblasti[i][0];
-  var nazev = oblasti[i][1];
-  var text = oblasti[i][2];
+    for(var i=0;i<oblasti.length;i++){
+      var id = oblasti[i][0];
+      var nazev = oblasti[i][1];
+      var text = oblasti[i][2];
 
-  var checkbox = document.getElementById(id);
-  var poznamka = document.getElementById(id + "_poznamka").value;
+      var checkbox = document.getElementById(id);
+      var poznamka = document.getElementById(id + "_poznamka").value;
 
-  if(checkbox.checked){
-    poradenstvi += "\n" + nazev + ":\n" + text + "\n";
+      if(checkbox.checked){
+        poradenstvi += "\n" + nazev + ":\n" + text + "\n";
 
-    if(poznamka.trim() !== ""){
-      poradenstvi += "\nPoznámka pracovníka:\n" + poznamka + "\n";
+        if(poznamka.trim() !== ""){
+          poradenstvi += "\nPoznámka pracovníka:\n" + poznamka + "\n";
+        }
+      }
     }
   }
-}
-```
 
-}
-
-document.getElementById("vystup").innerText =
+  document.getElementById("vystup").innerText =
 "Úřad práce ČR – Kontaktní pracoviště Krnov\n\n" +
 "Datum jednání: " + datum + "\n" +
 "Místo jednání: " + misto + "\n\n" +
@@ -179,7 +176,11 @@ poradenstvi + "\n\n" +
 "oprávněná úřední osoba\n\n\n" +
 "............................................\n" +
 "účastník řízení";
-} </script>
+}
+</script>
 
 </body>
 </html>
+:::
+
+Po uložení dej **Commit changes** a na webu **Ctrl + F5**.
