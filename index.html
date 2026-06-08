@@ -22,8 +22,10 @@ button{margin-top:15px;padding:10px 18px}
 <h1>Interaktivní protokol DSSP</h1>
 
 <form>
-<label>Datum jednání</label>
-<input type="date" id="datum">
+<label>Číslo jednací</label>
+<input type="text" id="cj" placeholder="např. 12345/2026/OSO">
+
+<label>Datum jednání</label> <input type="date" id="datum">
 
 <label>Místo jednání</label> <input type="text" id="misto" value="v Osoblaze">
 
@@ -32,6 +34,13 @@ button{margin-top:15px;padding:10px 18px}
 <label>Datum narození</label> <input type="date" id="narozeni">
 
 <label>Adresa</label> <input type="text" id="adresa">
+
+<div class="box">
+<h2>Rychlý výběr situace klienta</h2>
+
+<label><input type="checkbox" onchange="balicek('exekuce',this.checked)" style="width:auto"> Exekuce a dluhová zátěž</label> <label><input type="checkbox" onchange="balicek('vyzivne',this.checked)" style="width:auto"> Nehrazené výživné</label> <label><input type="checkbox" onchange="balicek('ubytovna',this.checked)" style="width:auto"> Ubytovna / pobytová služba</label> <label><input type="checkbox" onchange="balicek('prijem',this.checked)" style="width:auto"> Ztráta příjmu</label>
+
+</div>
 
 <div class="box">
 <h2>Oblasti poradenství</h2>
@@ -86,7 +95,7 @@ button{margin-top:15px;padding:10px 18px}
 
 </div>
 
-<button type="button" onclick="generuj()">Vygenerovat protokol</button> <button type="button" onclick="window.print()">Tisk / uložit jako PDF</button> <button type="button" onclick="location.reload()">Vymazat formulář</button>
+<button type="button" onclick="generuj()">Vygenerovat protokol</button> <button type="button" onclick="window.print()">Tisk / uložit jako PDF</button> <button type="button" onclick="vymaz()">Vymazat formulář</button>
 
 </form>
 
@@ -136,7 +145,40 @@ var oblasti = [
   }
 ];
 
+function nastav(id, stav){
+  var el = document.getElementById(id);
+  if(el){ el.checked = stav; }
+}
+
+function balicek(typ, stav){
+  if(typ==="exekuce"){
+    nastav("dluhove", stav);
+    nastav("pracovni_motivace", stav);
+    nastav("socialni_navazna", stav);
+  }
+
+  if(typ==="vyzivne"){
+    nastav("reseni_vyzivneho", stav);
+    nastav("nahradni_vyzivne", stav);
+    nastav("ohrozeni_bydleni", stav);
+    nastav("socialni_navazna", stav);
+  }
+
+  if(typ==="ubytovna"){
+    nastav("vhodnejsi_bydleni", stav);
+    nastav("pracovni_motivace", stav);
+    nastav("socialni_navazna", stav);
+  }
+
+  if(typ==="prijem"){
+    nastav("zmena_prijmu", stav);
+    nastav("pracovni_motivace", stav);
+    nastav("socialni_navazna", stav);
+  }
+}
+
 function generuj(){
+  var cj = document.getElementById("cj").value;
   var datum = document.getElementById("datum").value;
   var misto = document.getElementById("misto").value;
   var jmeno = document.getElementById("jmeno").value;
@@ -163,7 +205,8 @@ function generuj(){
   }
 
   document.getElementById("vystup").innerText =
-"Úřad práce ČR – Kontaktní pracoviště Krnov\n\n" +
+"Úřad práce ČR – Kontaktní pracoviště Krnov\n" +
+"Č.j.: " + cj + "\n\n" +
 "Datum jednání: " + datum + "\n" +
 "Místo jednání: " + misto + "\n\n" +
 "P R O T O K O L\n\n" +
@@ -184,6 +227,12 @@ textPoradenstvi + "\n" +
 "oprávněná úřední osoba\n\n\n" +
 "............................................\n" +
 "účastník řízení";
+}
+
+function vymaz(){
+  if(confirm("Opravdu chcete vymazat celý formulář?")){
+    location.reload();
+  }
 }
 </script>
 
