@@ -1,14 +1,94 @@
 <!DOCTYPE html>
+
 <html lang="cs">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Protokol DSSP</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1{
+    text-align:center;
+}
+
+label{
+    display:block;
+    margin-top:10px;
+}
+
+input{
+    width:100%;
+    padding:8px;
+}
+
+button{
+    margin-top:20px;
+    padding:10px 20px;
+    cursor:pointer;
+}
+
+#vystup{
+    margin-top:30px;
+    border:1px solid #ccc;
+    padding:20px;
+    white-space:pre-wrap;
+}
+</style>
+
 </head>
 <body>
 
 <h1>Interaktivní protokol DSSP</h1>
 
-<p>Formulář se připravuje.</p>
+<label>Datum jednání</label> <input type="date" id="datum">
+
+<label>Jméno a příjmení klienta</label> <input type="text" id="jmeno">
+
+<label>Datum narození</label> <input type="date" id="narozeni">
+
+<label>Adresa</label> <input type="text" id="adresa">
+
+<button onclick="generuj()">Vygenerovat protokol</button>
+
+<div id="vystup"></div>
+
+<script>
+
+function generuj(){
+
+let datum=document.getElementById("datum").value;
+let jmeno=document.getElementById("jmeno").value;
+let narozeni=document.getElementById("narozeni").value;
+let adresa=document.getElementById("adresa").value;
+
+document.getElementById("vystup").innerHTML=`
+
+P R O T O K O L
+
+Datum jednání: ${datum}
+
+Účastník řízení:
+
+Jméno: ${jmeno}
+
+Datum narození: ${narozeni}
+
+Adresa: ${adresa}
+
+Předmět jednání:
+Možnosti řešení nízké dávky DSSP
+
+`;
+}
+
+</script>
 
 </body>
 </html>
