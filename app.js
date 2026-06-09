@@ -1,5 +1,35 @@
 var oblasti = [
   {
+    id:"pracovni_bonus",
+    nazev:"Pracovní aktivita a složka pracovní bonus",
+    text:"Klientovi byla doporučena evidence na ÚP ČR, zprostředkování zaměstnání, rekvalifikace nebo jiné vhodné pracovní příležitosti. Dále byl klientovi vysvětlen princip pracovního bonusu v rámci DSSP a jeho možný vliv na výši dávky a celkovou finanční situaci domácnosti."
+  },
+  {
+    id:"zmena_zranitelnosti",
+    nazev:"Změna zranitelnosti domácnosti s dětmi nad 7 let",
+    text:"Klientovi byla vysvětlena změna posuzování zranitelnosti domácnosti po dosažení stanoveného věku dítěte a její možný dopad na výši DSSP. Současně byly s klientem projednány možnosti pracovní aktivity s ohledem na péči o dítě, například formou zkráceného úvazku, flexibilního zaměstnání, samostatné výdělečné činnosti nebo rekvalifikace."
+  },
+  {
+    id:"stabilizace_bydleni",
+    nazev:"Stabilizace bydlení",
+    text:"Klientovi bylo vysvětleno, že je důležité předcházet vzniku dluhů na bydlení a energiích. Byly projednány možnosti stabilizace bytové situace domácnosti, včetně komunikace s pronajímatelem, úpravy záloh nebo dalších dostupných opatření vedoucích k předcházení ztráty bydlení."
+  },
+  {
+    id:"socialni_podpurne",
+    nazev:"Sociální a podpůrné služby",
+    text:"Klientovi byly doporučeny dostupné sociální a podpůrné služby, které mohou přispět ke stabilizaci jeho sociální, bytové nebo finanční situace. Konkrétní službu nebo organizaci může pracovník doplnit do poznámky."
+  },
+  {
+    id:"zamestnani_rekvalifikace",
+    nazev:"Zaměstnání a rekvalifikace",
+    text:"Klientovi byly vysvětleny možnosti zvýšení příjmů prostřednictvím pracovního uplatnění. Byly s ním projednány možnosti rekvalifikace, zvýšení kvalifikace a využití pracovních příležitostí odpovídajících jeho situaci a možnostem."
+  },
+  {
+    id:"sladeni_prace_pece",
+    nazev:"Podpora sladění práce a péče o dítě",
+    text:"Klientovi byly poskytnuty informace o možnostech sladění práce a péče o dítě, zejména prostřednictvím dětských skupin, mateřských škol, školních družin nebo dalších služeb podporujících péči o dítě."
+  },
+  {
     id:"reseni_vyzivneho",
     nazev:"Řešení výživného",
     text:"Klientovi bylo vysvětleno, že řádně stanovené a vymahatelné výživné je důležité nejen pro zabezpečení potřeb dítěte, ale také pro správné posouzení nároku na dávkovou podporu. V případě, že dosud neexistuje soudní rozhodnutí nebo jiný vykonatelný titul k výživnému, byla s klientem projednána možnost soudního stanovení výživného."
@@ -15,14 +45,14 @@ var oblasti = [
     text:"S klientem byla projednána jeho aktuální finanční a bytová situace. V odůvodněných případech byla projednána možnost mimořádné okamžité pomoci, zejména pokud hrozí ztráta bydlení nebo nezajištění základních životních potřeb."
   },
   {
-    id:"dluhove",
-    nazev:"Dluhové poradenství",
-    text:"Klientovi bylo doporučeno využití odborného dluhového poradenství za účelem lepší orientace v dluhové situaci, komunikace s věřiteli, řešení exekucí nebo případného oddlužení. Konkrétní službu může pracovník doplnit do poznámky."
+    id:"energeticke",
+    nazev:"Energetické poradenství",
+    text:"Klientovi bylo vysvětleno, že při vysokých nákladech na bydlení je vhodné věnovat pozornost spotřebě energií, výši záloh a možnostem komunikace s dodavateli energií nebo pronajímatelem. Byl informován o možnosti využití energetického poradenství."
   },
   {
-    id:"pracovni_motivace",
-    nazev:"Pracovní aktivita a motivace",
-    text:"Klientovi bylo vysvětleno, že legální pracovní aktivita může přispět ke zlepšení finanční a sociální situace. Zároveň byl informován o možnostech podpory zaměstnanosti a významu pracovního bonusu v rámci DSSP."
+    id:"socialni_bydleni",
+    nazev:"Sociální práce v oblasti bydlení",
+    text:"Klientovi byla doporučena spolupráce se sociálním pracovníkem obce nebo další návaznou službou při řešení bytové situace, orientaci v dostupných formách pomoci a hledání dlouhodobě udržitelného bydlení."
   },
   {
     id:"vhodnejsi_bydleni",
@@ -30,9 +60,14 @@ var oblasti = [
     text:"S klientem byla projednána možnost zajištění stabilnějšího a standardního bydlení. Klient byl informován o možnosti spolupráce se sociálním pracovníkem obce nebo návaznými službami dostupnými v místě bydliště."
   },
   {
-    id:"zmena_prijmu",
-    nazev:"Změna příjmové situace po podání žádosti",
-    text:"Klientovi bylo vysvětleno, že výše dávky byla stanovena podle příjmů z rozhodného období a současná změna nebo ztráta příjmu se dosud nemusela promítnout do výše dávky. Byla projednána možnost mimořádné okamžité pomoci a další dostupné podpory."
+    id:"pracovni_motivace",
+    nazev:"Pracovní aktivita a motivace",
+    text:"Klientovi bylo vysvětleno, že legální pracovní aktivita může přispět ke zlepšení finanční a sociální situace. Zároveň byl informován o možnostech podpory zaměstnanosti a významu pracovního bonusu v rámci DSSP."
+  },
+  {
+    id:"dluhove",
+    nazev:"Dluhové poradenství",
+    text:"Klientovi bylo doporučeno využití odborného dluhového poradenství za účelem lepší orientace v dluhové situaci, komunikace s věřiteli, řešení exekucí nebo případného oddlužení. Konkrétní službu může pracovník doplnit do poznámky."
   },
   {
     id:"socialni_navazna",
@@ -40,14 +75,9 @@ var oblasti = [
     text:"Klientovi byla doporučena spolupráce se sociálním pracovníkem obce nebo dalšími návaznými sociálními službami dostupnými v místě bydliště. Konkrétní službu může pracovník doplnit do poznámky."
   },
   {
-    id:"energeticke",
-    nazev:"Energetické poradenství",
-    text:"Klientovi bylo vysvětleno, že při vysokých nákladech na bydlení je vhodné věnovat pozornost spotřebě energií, výši záloh a možnostem komunikace s dodavateli energií nebo pronajímatelem. Byl informován o možnosti využití energetického poradenství."
-  },
-  {
-    id:"stabilizace_bydleni",
-    nazev:"Stabilizace bydlení",
-    text:"Klientovi bylo vysvětleno, že je důležité předcházet vzniku dluhů na bydlení a energiích. Byly projednány možnosti stabilizace bytové situace domácnosti, včetně komunikace s pronajímatelem, úpravy záloh nebo dalších dostupných opatření."
+    id:"zmena_prijmu",
+    nazev:"Změna příjmové situace po podání žádosti",
+    text:"Klientovi bylo vysvětleno, že výše dávky byla stanovena podle příjmů z rozhodného období a současná změna nebo ztráta příjmu se dosud nemusela promítnout do výše dávky. Byla projednána možnost mimořádné okamžité pomoci a další dostupné podpory."
   }
 ];
 
@@ -73,8 +103,39 @@ function nastav(id, stav){
 }
 
 function balicek(typ, stav){
-  if(typ==="exekuce"){
+
+  if(typ==="nezranitelni"){
+    nastav("pracovni_bonus", stav);
+    nastav("pracovni_motivace", stav);
+    nastav("zmena_zranitelnosti", stav);
+    nastav("socialni_navazna", stav);
+  }
+
+  if(typ==="zranitelni"){
+    nastav("stabilizace_bydleni", stav);
+    nastav("socialni_podpurne", stav);
+    nastav("pracovni_motivace", stav);
+    nastav("socialni_navazna", stav);
+  }
+
+  if(typ==="samozivitele"){
+    nastav("zamestnani_rekvalifikace", stav);
+    nastav("sladeni_prace_pece", stav);
+    nastav("reseni_vyzivneho", stav);
+    nastav("nahradni_vyzivne", stav);
+    nastav("stabilizace_bydleni", stav);
+    nastav("socialni_navazna", stav);
+  }
+
+  if(typ==="naklady_bydleni"){
+    nastav("energeticke", stav);
+    nastav("socialni_bydleni", stav);
+    nastav("stabilizace_bydleni", stav);
     nastav("dluhove", stav);
+  }
+
+  if(typ==="ubytovna"){
+    nastav("vhodnejsi_bydleni", stav);
     nastav("pracovni_motivace", stav);
     nastav("socialni_navazna", stav);
   }
@@ -86,8 +147,8 @@ function balicek(typ, stav){
     nastav("socialni_navazna", stav);
   }
 
-  if(typ==="ubytovna"){
-    nastav("vhodnejsi_bydleni", stav);
+  if(typ==="exekuce"){
+    nastav("dluhove", stav);
     nastav("pracovni_motivace", stav);
     nastav("socialni_navazna", stav);
   }
@@ -96,12 +157,7 @@ function balicek(typ, stav){
     nastav("zmena_prijmu", stav);
     nastav("pracovni_motivace", stav);
     nastav("socialni_navazna", stav);
-  }
-
-  if(typ==="energie"){
-    nastav("energeticke", stav);
-    nastav("stabilizace_bydleni", stav);
-    nastav("socialni_navazna", stav);
+    nastav("ohrozeni_bydleni", stav);
   }
 }
 
@@ -139,7 +195,6 @@ function generuj(){
 "<div class='hlavicka'>" +
 "<div class='logo-blok'>" +
 "<img src='logo-upcr.png' class='logo' alt='Úřad práce České republiky'>" +
-"<div class='slogan'>Cesta k novým příležitostem</div>" +
 "</div>" +
 "</div>" +
 
