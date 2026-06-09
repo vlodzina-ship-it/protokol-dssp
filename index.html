@@ -2,259 +2,70 @@
 
 <html lang="cs">
 <head>
-<meta charset="UTF-8">
-<title>Interaktivní protokol DSSP</title>
-<style>
-body{font-family:Arial,sans-serif;max-width:1000px;margin:auto;padding:20px}
-h1{text-align:center}
-label{display:block;margin-top:12px;font-weight:bold}
-input,select,textarea{width:100%;padding:8px;box-sizing:border-box}
-textarea{height:70px}
-button{margin-top:15px;padding:10px 18px}
-.box{border:1px solid #ccc;background:#f9f9f9;padding:15px;margin-top:15px}
-.item{border:1px solid #ddd;background:white;padding:10px;margin-top:10px}
-#vystup{border:1px solid #ccc;margin-top:25px;padding:20px;white-space:pre-wrap;min-height:200px}
-@media print{form,h1{display:none}#vystup{border:none}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interaktivní protokol DSSP</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<h1>Interaktivní protokol DSSP</h1>
+<div class="app">
+  <h1>Interaktivní protokol DSSP</h1>
 
-<form>
-<label>Číslo jednací</label>
-<input type="text" id="cj" placeholder="např. 12345/2026/OSO">
+  <form id="formular">
+    <label>Číslo jednací</label>
+    <input type="text" id="cj" placeholder="např. 12345/2026/OSO">
 
-<label>Datum jednání</label> <input type="date" id="datum">
+```
+<label>Datum jednání</label>
+<input type="date" id="datum">
 
-<label>Pracoviště</label> <select id="misto">
-
-<option value="Osoblaha">Osoblaha</option>
-<option value="Město Albrechtice">Město Albrechtice</option>
-<option value="Krnov">Krnov</option>
+<label>Pracoviště</label>
+<select id="pracoviste">
+  <option value="Osoblaha">Osoblaha</option>
+  <option value="Město Albrechtice">Město Albrechtice</option>
+  <option value="Krnov">Krnov</option>
 </select>
 
-<label>Jméno a příjmení klienta</label> <input type="text" id="jmeno">
+<label>Jméno a příjmení klienta</label>
+<input type="text" id="jmeno">
 
-<label>Datum narození</label> <input type="date" id="narozeni">
+<label>Datum narození</label>
+<input type="date" id="narozeni">
 
-<label>Adresa</label> <input type="text" id="adresa">
+<label>Adresa</label>
+<input type="text" id="adresa">
 
-<label>Čas ukončení jednání</label> <input type="time" id="casUkonceni">
-
-<div class="box">
-<h2>Rychlý výběr situace klienta</h2>
-
-<label><input type="checkbox" onchange="balicek('exekuce',this.checked)" style="width:auto"> Exekuce a dluhová zátěž</label> <label><input type="checkbox" onchange="balicek('vyzivne',this.checked)" style="width:auto"> Nehrazené výživné</label> <label><input type="checkbox" onchange="balicek('ubytovna',this.checked)" style="width:auto"> Ubytovna / pobytová služba</label> <label><input type="checkbox" onchange="balicek('prijem',this.checked)" style="width:auto"> Ztráta příjmu</label>
-
-</div>
+<label>Čas ukončení jednání</label>
+<input type="time" id="casUkonceni">
 
 <div class="box">
-<h2>Oblasti poradenství</h2>
+  <h2>Rychlý výběr situace klienta</h2>
 
-<div class="item">
-<label><input type="checkbox" id="reseni_vyzivneho" style="width:auto"> Řešení výživného: ANO/NE</label>
-<label>Poznámka</label>
-<textarea id="reseni_vyzivneho_poznamka"></textarea>
+  <label><input type="checkbox" onchange="balicek('exekuce', this.checked)"> Exekuce a dluhová zátěž</label>
+  <label><input type="checkbox" onchange="balicek('vyzivne', this.checked)"> Nehrazené výživné</label>
+  <label><input type="checkbox" onchange="balicek('ubytovna', this.checked)"> Ubytovna / pobytová služba</label>
+  <label><input type="checkbox" onchange="balicek('prijem', this.checked)"> Ztráta příjmu</label>
+  <label><input type="checkbox" onchange="balicek('energie', this.checked)"> Vysoké náklady na bydlení a energie</label>
 </div>
 
-<div class="item">
-<label><input type="checkbox" id="nahradni_vyzivne" style="width:auto"> Náhradní výživné: ANO/NE</label>
-<label>Poznámka</label>
-<textarea id="nahradni_vyzivne_poznamka"></textarea>
+<div class="box">
+  <h2>Oblasti poradenství</h2>
+  <div id="oblastiFormulare"></div>
 </div>
 
-<div class="item">
-<label><input type="checkbox" id="ohrozeni_bydleni" style="width:auto"> Podpora při ohrožení bydlení: ANO/NE</label>
-<label>Poznámka</label>
-<textarea id="ohrozeni_bydleni_poznamka"></textarea>
+<button type="button" onclick="generuj()">Vygenerovat protokol</button>
+<button type="button" onclick="window.print()">Tisk / uložit jako PDF</button>
+<button type="button" onclick="vymaz()">Vymazat formulář</button>
+```
+
+  </form>
+
+  <div id="vystup"></div>
 </div>
 
-<div class="item">
-<label><input type="checkbox" id="dluhove" style="width:auto"> Dluhové poradenství: ANO/NE</label>
-<label>Poznámka</label>
-<textarea id="dluhove_poznamka"></textarea>
-</div>
-
-<div class="item">
-<label><input type="checkbox" id="pracovni_motivace" style="width:auto"> Pracovní aktivita a motivace: ANO/NE</label>
-<label>Poznámka</label>
-<textarea id="pracovni_motivace_poznamka"></textarea>
-</div>
-
-<div class="item">
-<label><input type="checkbox" id="vhodnejsi_bydleni" style="width:auto"> Hledání vhodnějšího bydlení: ANO/NE</label>
-<label>Poznámka</label>
-<textarea id="vhodnejsi_bydleni_poznamka"></textarea>
-</div>
-
-<div class="item">
-<label><input type="checkbox" id="zmena_prijmu" style="width:auto"> Změna příjmové situace po podání žádosti: ANO/NE</label>
-<label>Poznámka</label>
-<textarea id="zmena_prijmu_poznamka"></textarea>
-</div>
-
-<div class="item">
-<label><input type="checkbox" id="socialni_navazna" style="width:auto"> Sociální práce a návazná pomoc: ANO/NE</label>
-<label>Poznámka</label>
-<textarea id="socialni_navazna_poznamka"></textarea>
-</div>
-
-</div>
-
-<button type="button" onclick="generuj()">Vygenerovat protokol</button> <button type="button" onclick="window.print()">Tisk / uložit jako PDF</button> <button type="button" onclick="vymaz()">Vymazat formulář</button>
-
-</form>
-
-<div id="vystup"></div>
-
-<script>
-var oblasti = [
-  {
-    id:"reseni_vyzivneho",
-    nazev:"Řešení výživného",
-    text:"Klientovi bylo vysvětleno, že řádně stanovené a vymahatelné výživné je důležité nejen pro zabezpečení potřeb dítěte, ale také pro správné posouzení nároku na dávkovou podporu. V případě, že dosud neexistuje soudní rozhodnutí nebo jiný vykonatelný titul k výživnému, byla s klientem projednána možnost soudního stanovení výživného.\n\nZároveň byl klient upozorněn, že neformální dohoda mezi rodiči bez soudního rozhodnutí může vést k započítávání tzv. fikce výživného dle platné legislativy, což může ovlivnit výši poskytované podpory."
-  },
-  {
-    id:"nahradni_vyzivne",
-    nazev:"Náhradní výživné",
-    text:"Klientovi byla doporučena možnost podání žádosti o náhradní výživné v případech, kdy druhý rodič výživné nehradí vůbec nebo jej hradí pouze částečně. Současně byly klientovi srozumitelně vysvětleny podmínky nároku na tuto dávku, zejména nutnost existence soudně stanoveného výživného a aktivního vymáhání pohledávky vůči povinnému rodiči.\n\nZároveň byla klientovi poskytnuta základní orientace v postupu podání žádosti a potřebných podkladech."
-  },
-  {
-    id:"ohrozeni_bydleni",
-    nazev:"Podpora při ohrožení bydlení",
-    text:"S klientem byla projednána jeho aktuální finanční a bytová situace, zejména s ohledem na případy, kdy je poskytováno náhradní výživné, avšak při posouzení nároku na dávkovou podporu je současně započítáváno soudem stanovené výživné ve vyšší částce. Klientovi bylo vysvětleno, že tato situace může významně ovlivnit rozpočet domácnosti a schopnost hradit náklady spojené s bydlením a zajištěním základních životních potřeb.\n\nV odůvodněných případech byla s klientem projednána možnost poskytnutí mimořádné okamžité pomoci, zejména pokud hrozí ztráta bydlení, vznik dluhů na bydlení nebo nezajištění základních životních potřeb domácnosti."
-  },
-  {
-    id:"dluhove",
-    nazev:"Dluhové poradenství",
-    text:"Klientovi bylo doporučeno využití odborného dluhového poradenství za účelem lepší orientace v jeho dluhové situaci a nalezení vhodných možností jejího řešení. Byly s ním projednány možnosti komunikace s věřiteli, řešení exekučních řízení, případného oddlužení a další postupy vedoucí ke stabilizaci finanční situace.\n\nZároveň byl klient informován o významu aktivního přístupu k řešení dluhů a o dostupných poradenských službách. V případě zájmu byl klient nasměrován na organizace poskytující dluhové poradenství, zejména Osoblažský cech a Slezskou diakonii."
-  },
-  {
-    id:"pracovni_motivace",
-    nazev:"Pracovní aktivita a motivace",
-    text:"Klientovi bylo vysvětleno, že legální pracovní aktivita může i přes probíhající exekuce nebo insolvenci přispět ke zlepšení jeho finanční a sociální situace. Bylo s ním projednáno, že pravidelný příjem ze zaměstnání může přinést větší finanční stabilitu, pracovní zkušenosti a vytvořit podmínky pro postupné řešení dluhové situace.\n\nZároveň byl klient informován o možnostech podpory zaměstnanosti a o významu pracovního bonusu v rámci DSSP, který může mít pozitivní dopad na celkovou finanční situaci domácnosti."
-  },
-  {
-    id:"vhodnejsi_bydleni",
-    nazev:"Hledání vhodnějšího bydlení",
-    text:"S klientem byla projednána možnost zajištění stabilnějšího a standardního bydlení, zejména v případech, kdy aktuálně využívá ubytovací zařízení nebo pobytové sociální služby. Klientovi bylo vysvětleno, že vhodnější forma bydlení může přispět ke zlepšení jeho sociální situace, větší samostatnosti a dlouhodobé stabilizaci domácnosti.\n\nZároveň byl klient informován o možnosti spolupráce se sociálním pracovníkem obce nebo nestátní neziskovou organizací, kteří mohou pomoci s vyhledáváním vhodného bydlení, orientací v dostupných možnostech a zajištěním návazných služeb."
-  },
-  {
-    id:"zmena_prijmu",
-    nazev:"Změna příjmové situace po podání žádosti",
-    text:"Klientovi bylo srozumitelně vysvětleno, že výše dávky státní sociální podpory byla stanovena na základě příjmů z rozhodného období před podáním žádosti a že současná změna nebo ztráta příjmu se dosud nemusela promítnout do výše přiznané dávky. Bylo s ním projednáno, jakým způsobem může tato skutečnost ovlivnit aktuální finanční situaci domácnosti.\n\nZároveň byl klient informován o plánovaném přehodnocení dávky, při kterém budou zohledněny aktuálnější údaje o příjmech a nákladech domácnosti, a o možnosti následné úpravy výše poskytované podpory. V případě nepříznivé sociální situace byla s klientem projednána také možnost poskytnutí mimořádné okamžité pomoci a další dostupné formy podpory."
-  },
-  {
-    id:"socialni_navazna",
-    nazev:"Sociální práce a návazná pomoc",
-    text:"Klientovi byla doporučena spolupráce se sociálním pracovníkem obce nebo nestátní neziskovou organizací, kteří mohou pomoci s orientací v systému sociální pomoci, řešením nepříznivé sociální situace a zprostředkováním návazných služeb.\n\nZároveň byl klient informován o možnostech pomoci při stabilizaci bydlení, zajištění základních životních potřeb a využití dalších forem podpory dostupných v místě bydliště."
-  }
-];
-
-function nastav(id, stav){
-  var el = document.getElementById(id);
-  if(el){ el.checked = stav; }
-}
-
-function balicek(typ, stav){
-  if(typ==="exekuce"){
-    nastav("dluhove", stav);
-    nastav("pracovni_motivace", stav);
-    nastav("socialni_navazna", stav);
-  }
-
-  if(typ==="vyzivne"){
-    nastav("reseni_vyzivneho", stav);
-    nastav("nahradni_vyzivne", stav);
-    nastav("ohrozeni_bydleni", stav);
-    nastav("socialni_navazna", stav);
-  }
-
-  if(typ==="ubytovna"){
-    nastav("vhodnejsi_bydleni", stav);
-    nastav("pracovni_motivace", stav);
-    nastav("socialni_navazna", stav);
-  }
-
-  if(typ==="prijem"){
-    nastav("zmena_prijmu", stav);
-    nastav("pracovni_motivace", stav);
-    nastav("socialni_navazna", stav);
-  }
-}
-
-function generuj(){
-  var cj = document.getElementById("cj").value;
-  var datum = document.getElementById("datum").value;
-  var misto = document.getElementById("misto").value;
-  var jmeno = document.getElementById("jmeno").value;
-  var narozeni = document.getElementById("narozeni").value;
-  var adresa = document.getElementById("adresa").value;
-  var casUkonceni = document.getElementById("casUkonceni").value;
-
-  var textPoradenstvi = "";
-
-  for(var i=0;i<oblasti.length;i++){
-    var o = oblasti[i];
-    var checkbox = document.getElementById(o.id);
-    var poznamka = document.getElementById(o.id + "_poznamka").value;
-
-    if(checkbox.checked){
-      textPoradenstvi += "\n" + o.nazev + ":\n";
-      textPoradenstvi += o.text + "\n";
-
-      if(poznamka.trim() !== ""){
-        textPoradenstvi += "\nPoznámka pracovníka:\n" + poznamka + "\n";
-      }
-
-      textPoradenstvi += "\n";
-    }
-  }
-
-  document.getElementById("vystup").innerText =
-"Úřad práce ČR – Kontaktní pracoviště Krnov\n" +
-"Č.j.: " + cj + "\n" +
-"Pracoviště: " + misto + "\n\n" +
-"Datum jednání: " + datum + "\n\n" +
-"P R O T O K O L\n\n" +
-"ve smyslu ustanovení § 18 zákona č. 500/2004 Sb., správní řád, ve znění pozdějších předpisů\n\n" +
-"Účastník řízení:\n\n" +
-"Jméno a příjmení: " + jmeno + "\n" +
-"Datum narození: " + narozeni + "\n" +
-"Místo trvalého pobytu: " + adresa + "\n\n" +
-"Předmět jednání:\n" +
-"Možnosti řešení nízké dávky DSSP\n\n" +
-"Jmenovaný/á byl/a seznámen/a s rozhodnutím o DSSP, které mu/jí bylo srozumitelně vysvětleno.\n\n" +
-"Poskytnuté poradenství:\n" +
-textPoradenstvi + "\n" +
-"Účastník řízení dle svého vyjádření všemu porozuměl.\n" +
-"Účastník řízení si protokol přečetl a s jeho obsahem souhlasí.\n\n" +
-"Jednání bylo ukončeno v " + casUkonceni + " hodin.\n\n\n" +
-"............................................\n" +
-"oprávněná úřední osoba\n\n\n" +
-"............................................\n" +
-"účastník řízení";
-}
-
-function vymaz(){
-  if(confirm("Opravdu chcete vymazat celý formulář?")){
-    location.reload();
-  }
-}
-
-window.onload = function(){
-  var dnes = new Date();
-  var rok = dnes.getFullYear();
-  var mesic = String(dnes.getMonth() + 1).padStart(2, "0");
-  var den = String(dnes.getDate()).padStart(2, "0");
-  document.getElementById("datum").value = rok + "-" + mesic + "-" + den;
-
-  var h = String(dnes.getHours()).padStart(2, "0");
-  var m = String(dnes.getMinutes()).padStart(2, "0");
-  document.getElementById("casUkonceni").value = h + ":" + m;
-};
-</script>
+<script src="app.js"></script>
 
 </body>
 </html>
