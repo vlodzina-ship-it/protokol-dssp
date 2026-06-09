@@ -92,7 +92,7 @@ function vykresliOblasti(){
       "<div class='item'>" +
       "<label><input type='checkbox' id='" + o.id + "'> " + o.nazev + ": ANO/NE</label>" +
       "<label>Poznámka pracovníka</label>" +
-      "<textarea id='" + o.id + "_poznamka'></textarea>" +
+      "<textarea id='" + o.id + "_poznamka' spellcheck='true' lang='cs'></textarea>" +
       "</div>";
   }
 }
@@ -161,6 +161,21 @@ function balicek(typ, stav){
   }
 }
 
+function nastavNazevDokumentu(jmeno){
+  var nazevSouboru = "Protokol_DSSP_" + jmeno
+    .trim()
+    .replace(/\s+/g, "_")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-zA-Z0-9_]/g, "");
+
+  if(nazevSouboru === "Protokol_DSSP_"){
+    nazevSouboru = "Protokol_DSSP";
+  }
+
+  document.title = nazevSouboru;
+}
+
 function generuj(){
   var cj = document.getElementById("cj").value;
   var datum = document.getElementById("datum").value;
@@ -169,6 +184,8 @@ function generuj(){
   var narozeni = document.getElementById("narozeni").value;
   var adresa = document.getElementById("adresa").value;
   var casUkonceni = document.getElementById("casUkonceni").value;
+
+  nastavNazevDokumentu(jmeno);
 
   var textPoradenstvi = "";
 
@@ -240,6 +257,7 @@ function generuj(){
 
 function vymaz(){
   if(confirm("Opravdu chcete vymazat celý formulář?")){
+    document.title = "Interaktivní protokol DSSP";
     location.reload();
   }
 }
