@@ -43,11 +43,14 @@
 <div class="box">
   <h2>Rychlý výběr situace klienta</h2>
 
-  <label><input type="checkbox" onchange="balicek('exekuce', this.checked)"> Exekuce a dluhová zátěž</label>
-  <label><input type="checkbox" onchange="balicek('vyzivne', this.checked)"> Nehrazené výživné</label>
-  <label><input type="checkbox" onchange="balicek('ubytovna', this.checked)"> Ubytovna / pobytová služba</label>
-  <label><input type="checkbox" onchange="balicek('prijem', this.checked)"> Ztráta příjmu</label>
-  <label><input type="checkbox" onchange="balicek('energie', this.checked)"> Vysoké náklady na bydlení a energie</label>
+  <label><input type="checkbox" onchange="balicek('nezranitelni', this.checked)"> Nezranitelné osoby bez pracovní aktivity</label>
+  <label><input type="checkbox" onchange="balicek('zranitelni', this.checked)"> Ohrožené zranitelné domácnosti</label>
+  <label><input type="checkbox" onchange="balicek('samozivitele', this.checked)"> Samoživitelé s nízkými příjmy</label>
+  <label><input type="checkbox" onchange="balicek('naklady_bydleni', this.checked)"> Domácnosti s vysokými náklady na bydlení</label>
+  <label><input type="checkbox" onchange="balicek('ubytovna', this.checked)"> Více osob na pokoji v ubytovně / pobytové sociální službě</label>
+  <label><input type="checkbox" onchange="balicek('vyzivne', this.checked)"> Domácnosti s nehrazeným výživným</label>
+  <label><input type="checkbox" onchange="balicek('exekuce', this.checked)"> Klienti s exekucemi a dluhovou zátěží</label>
+  <label><input type="checkbox" onchange="balicek('prijem', this.checked)"> Ztráta zaměstnání nebo jiného pravidelného příjmu</label>
 </div>
 
 <div class="box">
