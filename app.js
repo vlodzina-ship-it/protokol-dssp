@@ -89,17 +89,45 @@ function vykresliOblasti(){
     var o = oblasti[i];
 
     box.innerHTML +=
-      "<div class='item'>" +
-      "<label><input type='checkbox' id='" + o.id + "'> " + o.nazev + ": ANO/NE</label>" +
+      "<div class='item' id='box_" + o.id + "'>" +
+      "<label><input type='checkbox' id='" + o.id + "' onchange='zvyrazniOblast(\"" + o.id + "\")'> " + o.nazev + ": ANO/NE</label>" +
       "<label>Poznámka pracovníka</label>" +
       "<textarea id='" + o.id + "_poznamka' spellcheck='true' lang='cs'></textarea>" +
       "</div>";
   }
 }
 
+function zvyrazniOblast(id){
+  var checkbox = document.getElementById(id);
+  var box = document.getElementById("box_" + id);
+
+  if(checkbox && box){
+    if(checkbox.checked){
+      box.classList.add("vybrano");
+    } else {
+      box.classList.remove("vybrano");
+    }
+  }
+}
+
 function nastav(id, stav){
   var el = document.getElementById(id);
-  if(el){ el.checked = stav; }
+  if(el){
+    el.checked = stav;
+    zvyrazniOblast(id);
+  }
+}
+
+function vybratVse(){
+  for(var i=0;i<oblasti.length;i++){
+    nastav(oblasti[i].id, true);
+  }
+}
+
+function zrusitVse(){
+  for(var i=0;i<oblasti.length;i++){
+    nastav(oblasti[i].id, false);
+  }
 }
 
 function balicek(typ, stav){
@@ -195,14 +223,15 @@ function generuj(){
     var poznamka = document.getElementById(o.id + "_poznamka").value;
 
     if(checkbox.checked){
-      textPoradenstvi += "\n" + o.nazev + ":\n";
-      textPoradenstvi += o.text + "\n";
+      textPoradenstvi += "<p><strong>" + o.nazev + ":</strong></p>";
+      textPoradenstvi += "<p>" + o.text + "</p>";
 
       if(poznamka.trim() !== ""){
-        textPoradenstvi += "\nPoznámka pracovníka:\n" + poznamka + "\n";
+        textPoradenstvi +=
+          "<p><strong>Poznámka pracovníka:</strong><br>" +
+          poznamka +
+          "</p>";
       }
-
-      textPoradenstvi += "\n";
     }
   }
 
@@ -235,7 +264,7 @@ function generuj(){
 "<p>Jmenovaný/á byl/a seznámen/a s rozhodnutím o DSSP, které mu/jí bylo srozumitelně vysvětleno.</p>" +
 
 "<p><strong>Poskytnuté poradenství:</strong></p>" +
-"<div class='text-poradenstvi'>" + textPoradenstvi.replace(/\n/g, "<br>") + "</div>" +
+"<div class='text-poradenstvi'>" + textPoradenstvi + "</div>" +
 
 "<p>Účastník řízení dle svého vyjádření všemu porozuměl.<br>" +
 "Účastník řízení si protokol přečetl a s jeho obsahem souhlasí.</p>" +
@@ -248,11 +277,25 @@ function generuj(){
 "</div>" +
 
 "<div class='paticka'>" +
-"<span>Úřad práce České republiky</span>" +
-"<span>www.up.gov.cz</span>" +
+"Úřad práce České republiky | www.up.gov.cz" +
 "</div>" +
 
 "</div>";
+}
+
+function kopirovatProtokol(){
+  var vystup = document.getElementById("vystup");
+
+  if(vystup.innerText.trim() === ""){
+    alert("Nejdříve vygenerujte protokol.");
+    return;
+  }
+
+  navigator.clipboard.writeText(vystup.innerText).then(function(){
+    alert("Protokol byl zkopírován do schránky.");
+  }).catch(function(){
+    alert("Kopírování se nezdařilo. Označte text ručně a zkopírujte jej pomocí Ctrl+C.");
+  });
 }
 
 function vymaz(){
