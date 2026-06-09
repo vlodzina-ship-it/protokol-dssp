@@ -38,6 +38,11 @@ textarea{
     margin-top:4px;
 }
 
+input[type=checkbox]{
+    width:auto;
+    margin-right:6px;
+}
+
 textarea{
     height:80px;
     resize:vertical;
@@ -78,31 +83,133 @@ button:hover{
     border:1px solid #ccc;
     padding:30px;
     margin-top:30px;
-    white-space:pre-wrap;
     min-height:300px;
+}
+
+/* protokol */
+
+.protokol{
+    font-family:Arial, sans-serif;
+    font-size:12px;
+    line-height:1.35;
+    color:#000;
+}
+
+.hlavicka{
+    margin-bottom:15px;
+}
+
+.logo-blok{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:25px;
+}
+
+.logo{
+    max-width:420px;
+    width:100%;
+    height:auto;
+}
+
+.slogan{
+    display:none;
+}
+
+.meta{
+    margin-top:10px;
+    margin-bottom:10px;
+    font-size:12px;
+}
+
+.nazev{
+    text-align:center;
+    letter-spacing:5px;
+    color:#0F0888;
+    margin:10px 0;
+}
+
+.zakon{
+    text-align:center;
+    font-weight:bold;
+}
+
+.text-poradenstvi{
+    margin-top:5px;
+}
+
+.podpisy{
+    display:flex;
+    justify-content:space-between;
+    margin-top:30px;
+    text-align:center;
+}
+
+.podpisy div{
+    width:45%;
+}
+
+.paticka{
+    margin-top:25px;
+    border-top:1px solid #0F0888;
+    padding-top:6px;
+    display:flex;
+    justify-content:space-between;
+    font-size:11px;
+    color:#333;
 }
 
 /* tisk */
 
 @page{
     size:A4;
-    margin:20mm;
+    margin:15mm;
 }
 
 @media print{
 
+    body{
+        background:white;
+        padding:0;
+        margin:0;
+    }
+
+    h1,
     form{
         display:none;
     }
 
-    body{
-        background:white;
-        padding:0;
+    .app{
+        max-width:none;
+        margin:0;
     }
 
     #vystup{
         border:none;
         margin:0;
         padding:0;
+        min-height:auto;
+    }
+
+    .protokol{
+        font-size:11px;
+        line-height:1.25;
+    }
+
+    .logo{
+        max-width:430px;
+    }
+
+    .meta{
+        margin-top:8px;
+    }
+
+    .nazev{
+        margin-top:8px;
+        margin-bottom:8px;
+    }
+
+    .paticka{
+        margin-top:18px;
     }
 }
