@@ -140,7 +140,7 @@ function nastavNazevDokumentu(jmeno){
   return nazevSouboru;
 }
 
-function sestavProtokolHtml(){
+function sestavProtokolHtml(logoSrc){
   var cj = document.getElementById("cj").value;
   var datum = document.getElementById("datum").value;
   var pracoviste = document.getElementById("pracoviste").value;
@@ -148,6 +148,8 @@ function sestavProtokolHtml(){
   var narozeni = document.getElementById("narozeni").value;
   var adresa = document.getElementById("adresa").value;
   var casUkonceni = document.getElementById("casUkonceni").value;
+
+  var logo = logoSrc || "logo-upcr.png";
 
   var textPoradenstvi = "";
 
@@ -172,7 +174,7 @@ function sestavProtokolHtml(){
   return "<div class='protokol'>" +
     "<div class='hlavicka'>" +
     "<div class='logo-blok'>" +
-    "<img src='logo-upcr.png' class='logo' alt='Úřad práce České republiky'>" +
+    "<img src='" + logo + "' class='logo' alt='Úřad práce České republiky'>" +
     "</div>" +
     "</div>" +
 
@@ -246,38 +248,59 @@ function stahnoutWord(){
   var jmeno = document.getElementById("jmeno").value;
   var nazev = nastavNazevDokumentu(jmeno);
 
-  var html =
-    "<!DOCTYPE html>" +
-    "<html><head><meta charset='utf-8'>" +
-    "<style>" +
-    "body{font-family:Arial,sans-serif;font-size:11pt;line-height:1.3;color:#000;}" +
-    ".logo{max-width:420px;width:420px;height:auto;}" +
-    ".logo-blok{text-align:center;}" +
-    ".nazev{text-align:center;letter-spacing:5px;color:#0F0888;}" +
-    ".zakon{text-align:center;font-weight:bold;}" +
-    ".text-poradenstvi strong{color:#0F0888;font-size:12pt;}" +
-    ".podpisy{margin-top:35px;width:100%;}" +
-    ".podpisy div{display:inline-block;width:45%;text-align:center;vertical-align:top;}" +
-    ".paticka{margin-top:25px;border-top:1px solid #0F0888;padding-top:8px;text-align:center;font-size:9pt;font-weight:bold;}" +
-    "</style></head><body>" +
-    sestavProtokolHtml() +
-    "</body></html>";
+  fetch("logo-upcr.png")
+    .then(function(response){
+      if(!response.ok){
+        throw new Error("Logo nenalezeno");
+      }
+      return response.blob();
+    })
+    .then(function(blob){
+      var reader = new FileReader();
 
-  if(typeof htmlDocx === "undefined"){
-    alert("Knihovna pro Word se nenačetla. Zkontrolujte připojení k internetu.");
-    return;
-  }
+      reader.onloadend = function(){
+        var logoBase64 = reader.result;
 
-  var blob = htmlDocx.asBlob(html);
+        var html =
+          "<html xmlns:o='urn:schemas-microsoft-com:office:office' " +
+          "xmlns:w='urn:schemas-microsoft-com:office:word' " +
+          "xmlns='http://www.w3.org/TR/REC-html40'>" +
+          "<head><meta charset='utf-8'>" +
+          "<style>" +
+          "body{font-family:Arial,sans-serif;font-size:11pt;line-height:1.3;color:#000;}" +
+          ".logo{width:420px;height:auto;}" +
+          ".logo-blok{text-align:center;}" +
+          ".meta{margin-top:10px;margin-bottom:15px;font-size:11pt;}" +
+          ".nazev{text-align:center;letter-spacing:5px;color:#0F0888;}" +
+          ".zakon{text-align:center;font-weight:bold;}" +
+          ".text-poradenstvi strong{color:#0F0888;font-size:12pt;}" +
+          ".podpisy{margin-top:35px;width:100%;}" +
+          ".podpisy div{display:inline-block;width:45%;text-align:center;vertical-align:top;}" +
+          ".paticka{margin-top:25px;border-top:1px solid #0F0888;padding-top:8px;text-align:center;font-size:9pt;font-weight:bold;}" +
+          "</style>" +
+          "</head><body>" +
+          sestavProtokolHtml(logoBase64) +
+          "</body></html>";
 
-  var odkaz = document.createElement("a");
-  odkaz.href = URL.createObjectURL(blob);
-  odkaz.download = nazev + ".docx";
-  document.body.appendChild(odkaz);
-  odkaz.click();
-  document.body.removeChild(odkaz);
+        var blobWord = new Blob(["\ufeff", html], {
+          type: "application/msword;charset=utf-8"
+        });
 
-  URL.revokeObjectURL(odkaz.href);
+        var odkaz = document.createElement("a");
+        odkaz.href = URL.createObjectURL(blobWord);
+        odkaz.download = nazev + ".doc";
+        document.body.appendChild(odkaz);
+        odkaz.click();
+        document.body.removeChild(odkaz);
+
+        URL.revokeObjectURL(odkaz.href);
+      };
+
+      reader.readAsDataURL(blob);
+    })
+    .catch(function(){
+      alert("Nepodařilo se načíst logo. Zkontrolujte, že soubor logo-upcr.png je v repozitáři.");
+    });
 }
 
 function vymaz(){
