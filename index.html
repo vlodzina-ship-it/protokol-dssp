@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="cs">
 <head>
   <meta charset="UTF-8">
@@ -17,58 +16,59 @@
     <label>Číslo jednací</label>
     <input type="text" id="cj" placeholder="např. 12345/2026/OSO">
 
-```
-<label>Datum jednání</label>
-<input type="date" id="datum">
+    <label>Datum jednání</label>
+    <input type="date" id="datum">
 
-<label>Pracoviště</label>
-<select id="pracoviste">
-  <option value="Osoblaha">Osoblaha</option>
-  <option value="Město Albrechtice">Město Albrechtice</option>
-  <option value="Krnov">Krnov</option>
-</select>
+    <label>Pracoviště</label>
+    <select id="pracoviste">
+      <option value="Osoblaha">Osoblaha</option>
+      <option value="Město Albrechtice">Město Albrechtice</option>
+      <option value="Krnov">Krnov</option>
+    </select>
 
-<label>Jméno a příjmení klienta</label>
-<input type="text" id="jmeno">
+    <label>Jméno a příjmení klienta</label>
+    <input type="text" id="jmeno">
 
-<label>Datum narození</label>
-<input type="date" id="narozeni">
+    <label>Datum narození</label>
+    <input type="date" id="narozeni">
 
-<label>Adresa</label>
-<input type="text" id="adresa">
+    <label>Adresa</label>
+    <input type="text" id="adresa">
 
-<label>Čas ukončení jednání</label>
-<input type="time" id="casUkonceni">
+    <label>Čas ukončení jednání</label>
+    <input type="time" id="casUkonceni">
 
-<div class="box">
-  <h2>Rychlý výběr situace klienta</h2>
+    <div class="box">
+      <h2>Rychlý výběr situace klienta</h2>
 
-  <label><input type="checkbox" onchange="balicek('nezranitelni', this.checked)"> Nezranitelné osoby bez pracovní aktivity</label>
-  <label><input type="checkbox" onchange="balicek('zranitelni', this.checked)"> Ohrožené zranitelné domácnosti</label>
-  <label><input type="checkbox" onchange="balicek('samozivitele', this.checked)"> Samoživitelé s nízkými příjmy</label>
-  <label><input type="checkbox" onchange="balicek('naklady_bydleni', this.checked)"> Domácnosti s vysokými náklady na bydlení</label>
-  <label><input type="checkbox" onchange="balicek('ubytovna', this.checked)"> Více osob na pokoji v ubytovně / pobytové sociální službě</label>
-  <label><input type="checkbox" onchange="balicek('vyzivne', this.checked)"> Domácnosti s nehrazeným výživným</label>
-  <label><input type="checkbox" onchange="balicek('exekuce', this.checked)"> Klienti s exekucemi a dluhovou zátěží</label>
-  <label><input type="checkbox" onchange="balicek('prijem', this.checked)"> Ztráta zaměstnání nebo jiného pravidelného příjmu</label>
-</div>
+      <label><input type="checkbox" onchange="balicek('nezranitelni', this.checked)"> Nezranitelné osoby bez pracovní aktivity</label>
+      <label><input type="checkbox" onchange="balicek('zranitelni', this.checked)"> Ohrožené zranitelné domácnosti</label>
+      <label><input type="checkbox" onchange="balicek('samozivitele', this.checked)"> Samoživitelé s nízkými příjmy</label>
+      <label><input type="checkbox" onchange="balicek('naklady_bydleni', this.checked)"> Domácnosti s vysokými náklady na bydlení</label>
+      <label><input type="checkbox" onchange="balicek('ubytovna', this.checked)"> Více osob na pokoji v ubytovně / pobytové sociální službě</label>
+      <label><input type="checkbox" onchange="balicek('vyzivne', this.checked)"> Domácnosti s nehrazeným výživným</label>
+      <label><input type="checkbox" onchange="balicek('exekuce', this.checked)"> Klienti s exekucemi a dluhovou zátěží</label>
+      <label><input type="checkbox" onchange="balicek('prijem', this.checked)"> Ztráta zaměstnání nebo jiného pravidelného příjmu</label>
+    </div>
 
-<div class="box">
-  <h2>Oblasti poradenství</h2>
-  <div id="oblastiFormulare"></div>
-</div>
+    <div class="box">
+      <h2>Oblasti poradenství</h2>
 
-<button type="button" onclick="generuj()">Vygenerovat protokol</button>
-<button type="button" onclick="window.print()">Tisk / uložit jako PDF</button>
-<button type="button" onclick="vymaz()">Vymazat formulář</button>
-```
+      <button type="button" onclick="vybratVse()">Vybrat vše</button>
+      <button type="button" onclick="zrusitVse()">Zrušit vše</button>
 
+      <div id="oblastiFormulare"></div>
+    </div>
+
+    <button type="button" onclick="generuj()">Vygenerovat protokol</button>
+    <button type="button" onclick="kopirovatProtokol()">Kopírovat protokol</button>
+    <button type="button" onclick="window.print()">Tisk / uložit jako PDF</button>
+    <button type="button" onclick="vymaz()">Vymazat formulář</button>
   </form>
 
   <div id="vystup"></div>
 </div>
 
 <script src="app.js"></script>
-
 </body>
 </html>
