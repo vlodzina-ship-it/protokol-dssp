@@ -1,84 +1,20 @@
 var oblasti = [
-  {
-    id:"pracovni_bonus",
-    nazev:"Pracovní aktivita a složka pracovní bonus",
-    text:"Klientovi byla doporučena evidence na ÚP ČR, zprostředkování zaměstnání, rekvalifikace nebo jiné vhodné pracovní příležitosti. Dále byl klientovi vysvětlen princip pracovního bonusu v rámci DSSP a jeho možný vliv na výši dávky a celkovou finanční situaci domácnosti."
-  },
-  {
-    id:"zmena_zranitelnosti",
-    nazev:"Změna zranitelnosti domácnosti s dětmi nad 7 let",
-    text:"Klientovi byla vysvětlena změna posuzování zranitelnosti domácnosti po dosažení stanoveného věku dítěte a její možný dopad na výši DSSP. Současně byly s klientem projednány možnosti pracovní aktivity s ohledem na péči o dítě, například formou zkráceného úvazku, flexibilního zaměstnání, samostatné výdělečné činnosti nebo rekvalifikace."
-  },
-  {
-    id:"stabilizace_bydleni",
-    nazev:"Stabilizace bydlení",
-    text:"Klientovi bylo vysvětleno, že je důležité předcházet vzniku dluhů na bydlení a energiích. Byly projednány možnosti stabilizace bytové situace domácnosti, včetně komunikace s pronajímatelem, úpravy záloh nebo dalších dostupných opatření vedoucích k předcházení ztráty bydlení."
-  },
-  {
-    id:"socialni_podpurne",
-    nazev:"Sociální a podpůrné služby",
-    text:"Klientovi byly doporučeny dostupné sociální a podpůrné služby, které mohou přispět ke stabilizaci jeho sociální, bytové nebo finanční situace. Konkrétní službu nebo organizaci může pracovník doplnit do poznámky."
-  },
-  {
-    id:"zamestnani_rekvalifikace",
-    nazev:"Zaměstnání a rekvalifikace",
-    text:"Klientovi byly vysvětleny možnosti zvýšení příjmů prostřednictvím pracovního uplatnění. Byly s ním projednány možnosti rekvalifikace, zvýšení kvalifikace a využití pracovních příležitostí odpovídajících jeho situaci a možnostem."
-  },
-  {
-    id:"sladeni_prace_pece",
-    nazev:"Podpora sladění práce a péče o dítě",
-    text:"Klientovi byly poskytnuty informace o možnostech sladění práce a péče o dítě, zejména prostřednictvím dětských skupin, mateřských škol, školních družin nebo dalších služeb podporujících péči o dítě."
-  },
-  {
-    id:"reseni_vyzivneho",
-    nazev:"Řešení výživného",
-    text:"Klientovi bylo vysvětleno, že řádně stanovené a vymahatelné výživné je důležité nejen pro zabezpečení potřeb dítěte, ale také pro správné posouzení nároku na dávkovou podporu. V případě, že dosud neexistuje soudní rozhodnutí nebo jiný vykonatelný titul k výživnému, byla s klientem projednána možnost soudního stanovení výživného."
-  },
-  {
-    id:"nahradni_vyzivne",
-    nazev:"Náhradní výživné",
-    text:"Klientovi byla doporučena možnost podání žádosti o náhradní výživné v případech, kdy druhý rodič výživné nehradí vůbec nebo jej hradí pouze částečně. Současně byly klientovi vysvětleny podmínky nároku a potřebné podklady."
-  },
-  {
-    id:"ohrozeni_bydleni",
-    nazev:"Podpora při ohrožení bydlení",
-    text:"S klientem byla projednána jeho aktuální finanční a bytová situace. V odůvodněných případech byla projednána možnost mimořádné okamžité pomoci, zejména pokud hrozí ztráta bydlení nebo nezajištění základních životních potřeb."
-  },
-  {
-    id:"energeticke",
-    nazev:"Energetické poradenství",
-    text:"Klientovi bylo vysvětleno, že při vysokých nákladech na bydlení je vhodné věnovat pozornost spotřebě energií, výši záloh a možnostem komunikace s dodavateli energií nebo pronajímatelem. Byl informován o možnosti využití energetického poradenství."
-  },
-  {
-    id:"socialni_bydleni",
-    nazev:"Sociální práce v oblasti bydlení",
-    text:"Klientovi byla doporučena spolupráce se sociálním pracovníkem obce nebo další návaznou službou při řešení bytové situace, orientaci v dostupných formách pomoci a hledání dlouhodobě udržitelného bydlení."
-  },
-  {
-    id:"vhodnejsi_bydleni",
-    nazev:"Hledání vhodnějšího bydlení",
-    text:"S klientem byla projednána možnost zajištění stabilnějšího a standardního bydlení. Klient byl informován o možnosti spolupráce se sociálním pracovníkem obce nebo návaznými službami dostupnými v místě bydliště."
-  },
-  {
-    id:"pracovni_motivace",
-    nazev:"Pracovní aktivita a motivace",
-    text:"Klientovi bylo vysvětleno, že legální pracovní aktivita může přispět ke zlepšení finanční a sociální situace. Zároveň byl informován o možnostech podpory zaměstnanosti a významu pracovního bonusu v rámci DSSP."
-  },
-  {
-    id:"dluhove",
-    nazev:"Dluhové poradenství",
-    text:"Klientovi bylo doporučeno využití odborného dluhového poradenství za účelem lepší orientace v dluhové situaci, komunikace s věřiteli, řešení exekucí nebo případného oddlužení. Konkrétní službu může pracovník doplnit do poznámky."
-  },
-  {
-    id:"socialni_navazna",
-    nazev:"Sociální práce a návazná pomoc",
-    text:"Klientovi byla doporučena spolupráce se sociálním pracovníkem obce nebo dalšími návaznými sociálními službami dostupnými v místě bydliště. Konkrétní službu může pracovník doplnit do poznámky."
-  },
-  {
-    id:"zmena_prijmu",
-    nazev:"Změna příjmové situace po podání žádosti",
-    text:"Klientovi bylo vysvětleno, že výše dávky byla stanovena podle příjmů z rozhodného období a současná změna nebo ztráta příjmu se dosud nemusela promítnout do výše dávky. Byla projednána možnost mimořádné okamžité pomoci a další dostupné podpory."
-  }
+  { id:"pracovni_bonus", nazev:"Pracovní aktivita a složka pracovní bonus", text:"Klientovi byla doporučena evidence na ÚP ČR, zprostředkování zaměstnání, rekvalifikace nebo jiné vhodné pracovní příležitosti. Dále byl klientovi vysvětlen princip pracovního bonusu v rámci DSSP a jeho možný vliv na výši dávky a celkovou finanční situaci domácnosti." },
+  { id:"zmena_zranitelnosti", nazev:"Změna zranitelnosti domácnosti s dětmi nad 7 let", text:"Klientovi byla vysvětlena změna posuzování zranitelnosti domácnosti po dosažení stanoveného věku dítěte a její možný dopad na výši DSSP. Současně byly s klientem projednány možnosti pracovní aktivity s ohledem na péči o dítě, například formou zkráceného úvazku, flexibilního zaměstnání, samostatné výdělečné činnosti nebo rekvalifikace." },
+  { id:"stabilizace_bydleni", nazev:"Stabilizace bydlení", text:"Klientovi bylo vysvětleno, že je důležité předcházet vzniku dluhů na bydlení a energiích. Byly projednány možnosti stabilizace bytové situace domácnosti, včetně komunikace s pronajímatelem, úpravy záloh nebo dalších dostupných opatření vedoucích k předcházení ztráty bydlení." },
+  { id:"socialni_podpurne", nazev:"Sociální a podpůrné služby", text:"Klientovi byly doporučeny dostupné sociální a podpůrné služby, které mohou přispět ke stabilizaci jeho sociální, bytové nebo finanční situace. Konkrétní službu nebo organizaci může pracovník doplnit do poznámky." },
+  { id:"zamestnani_rekvalifikace", nazev:"Zaměstnání a rekvalifikace", text:"Klientovi byly vysvětleny možnosti zvýšení příjmů prostřednictvím pracovního uplatnění. Byly s ním projednány možnosti rekvalifikace, zvýšení kvalifikace a využití pracovních příležitostí odpovídajících jeho situaci a možnostem." },
+  { id:"sladeni_prace_pece", nazev:"Podpora sladění práce a péče o dítě", text:"Klientovi byly poskytnuty informace o možnostech sladění práce a péče o dítě, zejména prostřednictvím dětských skupin, mateřských škol, školních družin nebo dalších služeb podporujících péči o dítě." },
+  { id:"reseni_vyzivneho", nazev:"Řešení výživného", text:"Klientovi bylo vysvětleno, že řádně stanovené a vymahatelné výživné je důležité nejen pro zabezpečení potřeb dítěte, ale také pro správné posouzení nároku na dávkovou podporu. V případě, že dosud neexistuje soudní rozhodnutí nebo jiný vykonatelný titul k výživnému, byla s klientem projednána možnost soudního stanovení výživného." },
+  { id:"nahradni_vyzivne", nazev:"Náhradní výživné", text:"Klientovi byla doporučena možnost podání žádosti o náhradní výživné v případech, kdy druhý rodič výživné nehradí vůbec nebo jej hradí pouze částečně. Současně byly klientovi vysvětleny podmínky nároku a potřebné podklady." },
+  { id:"ohrozeni_bydleni", nazev:"Podpora při ohrožení bydlení", text:"S klientem byla projednána jeho aktuální finanční a bytová situace. V odůvodněných případech byla projednána možnost mimořádné okamžité pomoci, zejména pokud hrozí ztráta bydlení nebo nezajištění základních životních potřeb." },
+  { id:"energeticke", nazev:"Energetické poradenství", text:"Klientovi bylo vysvětleno, že při vysokých nákladech na bydlení je vhodné věnovat pozornost spotřebě energií, výši záloh a možnostem komunikace s dodavateli energií nebo pronajímatelem. Byl informován o možnosti využití energetického poradenství." },
+  { id:"socialni_bydleni", nazev:"Sociální práce v oblasti bydlení", text:"Klientovi byla doporučena spolupráce se sociálním pracovníkem obce nebo další návaznou službou při řešení bytové situace, orientaci v dostupných formách pomoci a hledání dlouhodobě udržitelného bydlení." },
+  { id:"vhodnejsi_bydleni", nazev:"Hledání vhodnějšího bydlení", text:"S klientem byla projednána možnost zajištění stabilnějšího a standardního bydlení. Klient byl informován o možnosti spolupráce se sociálním pracovníkem obce nebo návaznými službami dostupnými v místě bydliště." },
+  { id:"pracovni_motivace", nazev:"Pracovní aktivita a motivace", text:"Klientovi bylo vysvětleno, že legální pracovní aktivita může přispět ke zlepšení finanční a sociální situace. Zároveň byl informován o možnostech podpory zaměstnanosti a významu pracovního bonusu v rámci DSSP." },
+  { id:"dluhove", nazev:"Dluhové poradenství", text:"Klientovi bylo doporučeno využití odborného dluhového poradenství za účelem lepší orientace v dluhové situaci, komunikace s věřiteli, řešení exekucí nebo případného oddlužení. Konkrétní službu může pracovník doplnit do poznámky." },
+  { id:"socialni_navazna", nazev:"Sociální práce a návazná pomoc", text:"Klientovi byla doporučena spolupráce se sociálním pracovníkem obce nebo dalšími návaznými sociálními službami dostupnými v místě bydliště. Konkrétní službu může pracovník doplnit do poznámky." },
+  { id:"zmena_prijmu", nazev:"Změna příjmové situace po podání žádosti", text:"Klientovi bylo vysvětleno, že výše dávky byla stanovena podle příjmů z rozhodného období a současná změna nebo ztráta příjmu se dosud nemusela promítnout do výše dávky. Byla projednána možnost mimořádné okamžité pomoci a další dostupné podpory." }
 ];
 
 function vykresliOblasti(){
@@ -131,7 +67,6 @@ function zrusitVse(){
 }
 
 function balicek(typ, stav){
-
   if(typ==="nezranitelni"){
     nastav("pracovni_bonus", stav);
     nastav("pracovni_motivace", stav);
@@ -202,9 +137,10 @@ function nastavNazevDokumentu(jmeno){
   }
 
   document.title = nazevSouboru;
+  return nazevSouboru;
 }
 
-function generuj(){
+function sestavProtokolHtml(){
   var cj = document.getElementById("cj").value;
   var datum = document.getElementById("datum").value;
   var pracoviste = document.getElementById("pracoviste").value;
@@ -212,8 +148,6 @@ function generuj(){
   var narozeni = document.getElementById("narozeni").value;
   var adresa = document.getElementById("adresa").value;
   var casUkonceni = document.getElementById("casUkonceni").value;
-
-  nastavNazevDokumentu(jmeno);
 
   var textPoradenstvi = "";
 
@@ -235,52 +169,56 @@ function generuj(){
     }
   }
 
-  document.getElementById("vystup").innerHTML =
-"<div class='protokol'>" +
+  return "<div class='protokol'>" +
+    "<div class='hlavicka'>" +
+    "<div class='logo-blok'>" +
+    "<img src='logo-upcr.png' class='logo' alt='Úřad práce České republiky'>" +
+    "</div>" +
+    "</div>" +
 
-"<div class='hlavicka'>" +
-"<div class='logo-blok'>" +
-"<img src='logo-upcr.png' class='logo' alt='Úřad práce České republiky'>" +
-"</div>" +
-"</div>" +
+    "<div class='meta'>" +
+    "<div><strong>Č.j.:</strong> " + cj + "</div>" +
+    "<div><strong>Pracoviště:</strong> " + pracoviste + "</div>" +
+    "<div><strong>Datum jednání:</strong> " + datum + "</div>" +
+    "</div>" +
 
-"<div class='meta'>" +
-"<div><strong>Č.j.:</strong> " + cj + "</div>" +
-"<div><strong>Pracoviště:</strong> " + pracoviste + "</div>" +
-"<div><strong>Datum jednání:</strong> " + datum + "</div>" +
-"</div>" +
+    "<h2 class='nazev'>P R O T O K O L</h2>" +
 
-"<h2 class='nazev'>P R O T O K O L</h2>" +
+    "<p class='zakon'>ve smyslu ustanovení § 18 zákona č. 500/2004 Sb., správní řád, ve znění pozdějších předpisů</p>" +
 
-"<p class='zakon'>ve smyslu ustanovení § 18 zákona č. 500/2004 Sb., správní řád, ve znění pozdějších předpisů</p>" +
+    "<p><strong>Účastník řízení:</strong></p>" +
+    "<p>Jméno a příjmení: " + jmeno + "<br>" +
+    "Datum narození: " + narozeni + "<br>" +
+    "Místo trvalého pobytu: " + adresa + "</p>" +
 
-"<p><strong>Účastník řízení:</strong></p>" +
-"<p>Jméno a příjmení: " + jmeno + "<br>" +
-"Datum narození: " + narozeni + "<br>" +
-"Místo trvalého pobytu: " + adresa + "</p>" +
+    "<p><strong>Předmět jednání:</strong> Možnosti řešení nízké dávky DSSP</p>" +
 
-"<p><strong>Předmět jednání:</strong> Možnosti řešení nízké dávky DSSP</p>" +
+    "<p>Jmenovaný/á byl/a seznámen/a s rozhodnutím o DSSP, které mu/jí bylo srozumitelně vysvětleno.</p>" +
 
-"<p>Jmenovaný/á byl/a seznámen/a s rozhodnutím o DSSP, které mu/jí bylo srozumitelně vysvětleno.</p>" +
+    "<p><strong>Poskytnuté poradenství:</strong></p>" +
+    "<div class='text-poradenstvi'>" + textPoradenstvi + "</div>" +
 
-"<p><strong>Poskytnuté poradenství:</strong></p>" +
-"<div class='text-poradenstvi'>" + textPoradenstvi + "</div>" +
+    "<p>Účastník řízení dle svého vyjádření všemu porozuměl.<br>" +
+    "Účastník řízení si protokol přečetl a s jeho obsahem souhlasí.</p>" +
 
-"<p>Účastník řízení dle svého vyjádření všemu porozuměl.<br>" +
-"Účastník řízení si protokol přečetl a s jeho obsahem souhlasí.</p>" +
+    "<p>Jednání bylo ukončeno v " + casUkonceni + " hodin.</p>" +
 
-"<p>Jednání bylo ukončeno v " + casUkonceni + " hodin.</p>" +
+    "<div class='podpisy'>" +
+    "<div>............................................<br>oprávněná úřední osoba</div>" +
+    "<div>............................................<br>účastník řízení</div>" +
+    "</div>" +
 
-"<div class='podpisy'>" +
-"<div>............................................<br>oprávněná úřední osoba</div>" +
-"<div>............................................<br>účastník řízení</div>" +
-"</div>" +
+    "<div class='paticka'>" +
+    "Úřad práce České republiky | www.up.gov.cz" +
+    "</div>" +
 
-"<div class='paticka'>" +
-"Úřad práce České republiky | www.up.gov.cz" +
-"</div>" +
+    "</div>";
+}
 
-"</div>";
+function generuj(){
+  var jmeno = document.getElementById("jmeno").value;
+  nastavNazevDokumentu(jmeno);
+  document.getElementById("vystup").innerHTML = sestavProtokolHtml();
 }
 
 function kopirovatProtokol(){
@@ -296,6 +234,50 @@ function kopirovatProtokol(){
   }).catch(function(){
     alert("Kopírování se nezdařilo. Označte text ručně a zkopírujte jej pomocí Ctrl+C.");
   });
+}
+
+function stahnoutWord(){
+  var vystup = document.getElementById("vystup");
+
+  if(vystup.innerText.trim() === ""){
+    generuj();
+  }
+
+  var jmeno = document.getElementById("jmeno").value;
+  var nazev = nastavNazevDokumentu(jmeno);
+
+  var html =
+    "<!DOCTYPE html>" +
+    "<html><head><meta charset='utf-8'>" +
+    "<style>" +
+    "body{font-family:Arial,sans-serif;font-size:11pt;line-height:1.3;color:#000;}" +
+    ".logo{max-width:420px;width:420px;height:auto;}" +
+    ".logo-blok{text-align:center;}" +
+    ".nazev{text-align:center;letter-spacing:5px;color:#0F0888;}" +
+    ".zakon{text-align:center;font-weight:bold;}" +
+    ".text-poradenstvi strong{color:#0F0888;font-size:12pt;}" +
+    ".podpisy{margin-top:35px;width:100%;}" +
+    ".podpisy div{display:inline-block;width:45%;text-align:center;vertical-align:top;}" +
+    ".paticka{margin-top:25px;border-top:1px solid #0F0888;padding-top:8px;text-align:center;font-size:9pt;font-weight:bold;}" +
+    "</style></head><body>" +
+    sestavProtokolHtml() +
+    "</body></html>";
+
+  if(typeof htmlDocx === "undefined"){
+    alert("Knihovna pro Word se nenačetla. Zkontrolujte připojení k internetu.");
+    return;
+  }
+
+  var blob = htmlDocx.asBlob(html);
+
+  var odkaz = document.createElement("a");
+  odkaz.href = URL.createObjectURL(blob);
+  odkaz.download = nazev + ".docx";
+  document.body.appendChild(odkaz);
+  odkaz.click();
+  document.body.removeChild(odkaz);
+
+  URL.revokeObjectURL(odkaz.href);
 }
 
 function vymaz(){
