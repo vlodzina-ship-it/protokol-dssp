@@ -170,6 +170,8 @@ function sestavProtokolHtml(logoSrc){
   var cj = vytvorCj();
   var datum = document.getElementById("datum").value;
   var pracoviste = document.getElementById("pracoviste").value;
+  var urednik = document.getElementById("urednik").value;
+  var funkce = document.getElementById("funkce").value;
   var jmeno = document.getElementById("jmeno").value;
   var narozeni = document.getElementById("narozeni").value;
   var adresa = document.getElementById("adresa").value;
@@ -198,6 +200,7 @@ function sestavProtokolHtml(logoSrc){
   }
 
   return "<div class='protokol'>" +
+
     "<div class='hlavicka'>" +
     "<div class='logo-blok'>" +
     "<img src='" + logo + "' class='logo' alt='Úřad práce České republiky'>" +
@@ -213,6 +216,14 @@ function sestavProtokolHtml(logoSrc){
     "<h2 class='nazev'>P R O T O K O L</h2>" +
 
     "<p class='zakon'>ve smyslu ustanovení § 18 zákona č. 500/2004 Sb., správní řád, ve znění pozdějších předpisů</p>" +
+
+    "<p><strong>Přítomni:</strong></p>" +
+
+    "<p>za Úřad práce České republiky – krajskou pobočku v Ostravě,<br>" +
+    "kontaktní pracoviště Krnov, oddělení dávek HN</p>" +
+
+    "<p>• jméno a příjmení: " + urednik + "<br>" +
+    "• funkce: " + funkce + "</p>" +
 
     "<p><strong>Účastník řízení:</strong></p>" +
     "<p>Jméno a příjmení: " + jmeno + "<br>" +
