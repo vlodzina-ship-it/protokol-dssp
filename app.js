@@ -124,6 +124,32 @@ function balicek(typ, stav){
   }
 }
 
+function kodPracoviste(){
+  var pracoviste = document.getElementById("pracoviste").value;
+
+  if(pracoviste === "Osoblaha"){
+    return "OSO";
+  }
+
+  if(pracoviste === "Město Albrechtice"){
+    return "MAL";
+  }
+
+  return "KRN";
+}
+
+function vytvorCj(){
+  var cislo = document.getElementById("cj").value.trim();
+  var rok = new Date().getFullYear();
+  var kod = kodPracoviste();
+
+  if(cislo === ""){
+    return "";
+  }
+
+  return cislo + "/" + rok + "/" + kod;
+}
+
 function nastavNazevDokumentu(jmeno){
   var nazevSouboru = "Protokol_DSSP_" + jmeno
     .trim()
@@ -141,7 +167,7 @@ function nastavNazevDokumentu(jmeno){
 }
 
 function sestavProtokolHtml(logoSrc){
-  var cj = document.getElementById("cj").value;
+  var cj = vytvorCj();
   var datum = document.getElementById("datum").value;
   var pracoviste = document.getElementById("pracoviste").value;
   var jmeno = document.getElementById("jmeno").value;
