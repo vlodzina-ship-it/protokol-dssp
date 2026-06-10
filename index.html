@@ -4,12 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Interaktivní protokol DSSP</title>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#0F0888">
-    <link rel="icon" href="logo-upcr.png">
+    <!-- Ochrana proti cache -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <link rel="stylesheet" href="style.css?v=1.6">
 </head>
 
 <body>
@@ -21,7 +24,7 @@
     <form id="formular">
 
         <label>Pořadové číslo jednací</label>
-        <input type="text" id="cj" placeholder="např. 12345">
+        <input type="text" id="cjPoradi" placeholder="např. 12345">
 
         <label>Datum jednání</label>
         <input type="date" id="datum">
@@ -40,10 +43,10 @@
         </select>
 
         <label>Úřední osoba</label>
-        <select id="urednik"></select>
+        <select id="urednik" onchange="aktualizujFunkci()"></select>
 
         <label>Funkce</label>
-        <input type="text" id="funkce" value="Ověřovatel dávek NSD">
+        <input type="text" id="funkce" readonly>
 
         <label>Jméno a příjmení klienta</label>
         <input type="text" id="jmeno">
@@ -58,49 +61,23 @@
         <input type="time" id="casUkonceni">
 
         <div class="box">
-
             <h2>Rychlý výběr situace klienta</h2>
 
-            <label>
-                <input type="checkbox" onchange="balicek('nezranitelni', this.checked)">
-                Nezranitelné osoby bez pracovní aktivity
-            </label>
+            <label><input type="checkbox" onchange="balicek('nezranitelni', this.checked)"> Nezranitelné osoby bez pracovní aktivity</label>
 
-            <label>
-                <input type="checkbox" onchange="balicek('zranitelni', this.checked)">
-                Ohrožené zranitelné domácnosti
-            </label>
+            <label><input type="checkbox" onchange="balicek('zranitelni', this.checked)"> Ohrožené zranitelné domácnosti</label>
 
-            <label>
-                <input type="checkbox" onchange="balicek('samozivitele', this.checked)">
-                Samoživitelé s nízkými příjmy
-            </label>
+            <label><input type="checkbox" onchange="balicek('samozivitele', this.checked)"> Samoživitelé s nízkými příjmy</label>
 
-            <label>
-                <input type="checkbox" onchange="balicek('naklady_bydleni', this.checked)">
-                Domácnosti s vysokými náklady na bydlení
-            </label>
+            <label><input type="checkbox" onchange="balicek('naklady_bydleni', this.checked)"> Domácnosti s vysokými náklady na bydlení</label>
 
-            <label>
-                <input type="checkbox" onchange="balicek('ubytovna', this.checked)">
-                Více osob na pokoji v ubytovně / pobytové sociální službě
-            </label>
+            <label><input type="checkbox" onchange="balicek('ubytovna', this.checked)"> Více osob na pokoji v ubytovně / pobytové sociální službě</label>
 
-            <label>
-                <input type="checkbox" onchange="balicek('vyzivne', this.checked)">
-                Domácnosti s nehrazeným výživným
-            </label>
+            <label><input type="checkbox" onchange="balicek('vyzivne', this.checked)"> Domácnosti s nehrazeným výživným</label>
 
-            <label>
-                <input type="checkbox" onchange="balicek('exekuce', this.checked)">
-                Klienti s exekucemi a dluhovou zátěží
-            </label>
+            <label><input type="checkbox" onchange="balicek('exekuce', this.checked)"> Klienti s exekucemi a dluhovou zátěží</label>
 
-            <label>
-                <input type="checkbox" onchange="balicek('prijem', this.checked)">
-                Ztráta zaměstnání nebo jiného pravidelného příjmu
-            </label>
-
+            <label><input type="checkbox" onchange="balicek('prijem', this.checked)"> Ztráta zaměstnání nebo jiného pravidelného příjmu</label>
         </div>
 
         <div class="box">
@@ -123,16 +100,12 @@
             Vygenerovat protokol
         </button>
 
-        <button type="button" onclick="kopirovatProtokol()">
-            Kopírovat protokol
-        </button>
-
-        <button type="button" onclick="stahnoutWord()">
+        <button type="button" onclick="ulozitWord()">
             Stáhnout Word
         </button>
 
         <button type="button" onclick="window.print()">
-            Uložit PDF
+            Tisk / PDF
         </button>
 
         <button type="button" onclick="vymaz()">
@@ -143,24 +116,13 @@
 
     <div id="vystup"></div>
 
+    <div class="verze">
+        Interaktivní protokol DSSP – verze 1.6
+    </div>
+
 </div>
 
-<script src="app.js"></script>
-
-<script>
-if ("serviceWorker" in navigator) {
-    window.addEventListener("load", function () {
-        navigator.serviceWorker
-            .register("./service-worker.js")
-            .then(function () {
-                console.log("Service Worker registrován");
-            })
-            .catch(function (err) {
-                console.log("Chyba Service Worker:", err);
-            });
-    });
-}
-</script>
+<script src="app.js?v=1.6"></script>
 
 </body>
 </html>
