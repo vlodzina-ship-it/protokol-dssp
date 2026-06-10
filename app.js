@@ -96,7 +96,7 @@ function vykresliOblasti(){
 
     box.innerHTML +=
       "<div class='item' id='box_" + o.id + "'>" +
-      "<label><input type='checkbox' id='" + o.id + "' onchange='zvyrazniOblast(\"" + o.id + "\")'> " + o.nazev + ": ANO/NE</label>" +
+      "<label><input type='checkbox' id='" + o.id + "' onchange='zvyrazniOblast(\"" + o.id + "\")'> " + o.nazev + "</label>" +
       "<label>Poznámka pracovníka</label>" +
       "<textarea id='" + o.id + "_poznamka' spellcheck='true' lang='cs'></textarea>" +
       "</div>";
