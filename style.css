@@ -97,6 +97,8 @@ button:hover{
     min-height:300px;
 }
 
+/* PROTOKOL */
+
 .protokol{
     font-family:Arial, sans-serif;
     font-size:12px;
@@ -151,6 +153,16 @@ button:hover{
     color:#0F0888;
 }
 
+.oblast-poradenstvi{
+    margin-bottom:12px;
+}
+
+.poradenstvi-hr{
+    border:none;
+    border-top:1px solid #0F0888;
+    margin:12px 0;
+}
+
 .podpisy{
     display:flex;
     justify-content:space-between;
@@ -171,6 +183,8 @@ button:hover{
     color:#333;
     font-weight:bold;
 }
+
+/* TISK */
 
 @page{
     size:A4;
@@ -214,6 +228,11 @@ button:hover{
     .nazev{
         margin-top:8px;
         margin-bottom:8px;
+    }
+
+    .poradenstvi-hr{
+        border-top:1px solid #0F0888;
+        margin:10px 0;
     }
 
     .paticka{
