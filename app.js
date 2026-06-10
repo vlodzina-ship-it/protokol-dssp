@@ -250,6 +250,7 @@ function sestavProtokolHtml(logoSrc){
 
   var logo = logoSrc || "logo-upcr.png";
   var textPoradenstvi = "";
+  var pocetVybranych = 0;
 
   for(var i=0;i<oblasti.length;i++){
     var o = oblasti[i];
@@ -257,8 +258,12 @@ function sestavProtokolHtml(logoSrc){
     var poznamka = document.getElementById(o.id + "_poznamka").value;
 
     if(checkbox.checked){
-      textPoradenstvi += "<p><strong>" + o.nazev + ":</strong></p>";
-      textPoradenstvi += "<p>" + o.text + "</p>";
+      pocetVybranych++;
+
+      textPoradenstvi +=
+        "<div class='oblast-poradenstvi'>" +
+        "<p><strong>" + o.nazev + "</strong></p>" +
+        "<p>" + o.text + "</p>";
 
       if(poznamka.trim() !== ""){
         textPoradenstvi +=
@@ -266,6 +271,12 @@ function sestavProtokolHtml(logoSrc){
           poznamka +
           "</p>";
       }
+
+      if(pocetVybranych > 0){
+        textPoradenstvi += "<hr class='poradenstvi-hr'>";
+      }
+
+      textPoradenstvi += "</div>";
     }
   }
 
@@ -382,6 +393,8 @@ function stahnoutWord(){
           ".nazev{text-align:center;letter-spacing:5px;color:#0F0888;}" +
           ".zakon{text-align:center;font-weight:bold;}" +
           ".text-poradenstvi strong{color:#0F0888;font-size:12pt;}" +
+          ".oblast-poradenstvi{margin-bottom:12px;}" +
+          ".poradenstvi-hr{border:none;border-top:1px solid #0F0888;margin:12px 0;}" +
           ".podpisy{margin-top:35px;width:100%;}" +
           ".podpisy div{display:inline-block;width:45%;text-align:center;vertical-align:top;}" +
           ".paticka{margin-top:25px;border-top:1px solid #0F0888;padding-top:8px;text-align:center;font-size:9pt;font-weight:bold;}" +
