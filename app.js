@@ -1,3 +1,56 @@
+var pracovnici = {
+  "Krnov": {
+    "NSD I": [
+      "DiS. Vendula Burešová",
+      "Bc. Eva Humpulová",
+      "Zuzana Láryšová",
+      "Jana Macková",
+      "Bc. Alexandra Mattovičová",
+      "Bc. Markéta Pakostová",
+      "Ing. Kateřina Palánková",
+      "DiS. Zuzana Slezáková",
+      "Ing. Alžběta Spargelová",
+      "Mgr. Dagmar Tarabíková",
+      "Bc. Radovan Válek",
+      "Ivana Válková",
+      "Bc. Karin Žáková"
+    ],
+    "NSD II": [
+      "Bc. Kristýna Gabajová",
+      "DiS. Hana Jemelková",
+      "Bc. Karolína Kořistková",
+      "Mgr. Renáta Nunvářová",
+      "Mgr. Lenka Pavlíčková",
+      "Bc. Julius Pavliska",
+      "Markéta Petrečková",
+      "Mgr. Irena Šimečková",
+      "Bc. Monika Viatrová",
+      "DiS. Bc. Tereza Wiatr"
+    ]
+  },
+
+  "Město Albrechtice": {
+    "NSD I": [
+      "Marcela Baronová",
+      "Jana Kurečková"
+    ],
+    "NSD II": [
+      "Nikola Bohačíková",
+      "Lenka Triki Slejšková"
+    ]
+  },
+
+  "Osoblaha": {
+    "NSD I": [
+      "Bc. Marcela Vaculová"
+    ],
+    "NSD II": [
+      "Bc. Vladimír Novák",
+      "Tomáš Schwarz"
+    ]
+  }
+};
+
 var oblasti = [
   { id:"pracovni_bonus", nazev:"Pracovní aktivita a složka pracovní bonus", text:"Klientovi byla doporučena evidence na ÚP ČR, zprostředkování zaměstnání, rekvalifikace nebo jiné vhodné pracovní příležitosti. Dále byl klientovi vysvětlen princip pracovního bonusu v rámci DSSP a jeho možný vliv na výši dávky a celkovou finanční situaci domácnosti." },
   { id:"zmena_zranitelnosti", nazev:"Změna zranitelnosti domácnosti s dětmi nad 7 let", text:"Klientovi byla vysvětlena změna posuzování zranitelnosti domácnosti po dosažení stanoveného věku dítěte a její možný dopad na výši DSSP. Současně byly s klientem projednány možnosti pracovní aktivity s ohledem na péči o dítě, například formou zkráceného úvazku, flexibilního zaměstnání, samostatné výdělečné činnosti nebo rekvalifikace." },
@@ -16,6 +69,23 @@ var oblasti = [
   { id:"socialni_navazna", nazev:"Sociální práce a návazná pomoc", text:"Klientovi byla doporučena spolupráce se sociálním pracovníkem obce nebo dalšími návaznými sociálními službami dostupnými v místě bydliště. Konkrétní službu může pracovník doplnit do poznámky." },
   { id:"zmena_prijmu", nazev:"Změna příjmové situace po podání žádosti", text:"Klientovi bylo vysvětleno, že výše dávky byla stanovena podle příjmů z rozhodného období a současná změna nebo ztráta příjmu se dosud nemusela promítnout do výše dávky. Byla projednána možnost mimořádné okamžité pomoci a další dostupné podpory." }
 ];
+
+function aktualizujPracovniky(){
+  var pracoviste = document.getElementById("pracoviste").value;
+  var oddeleni = document.getElementById("oddeleni").value;
+  var select = document.getElementById("urednik");
+
+  select.innerHTML = "";
+
+  var seznam = pracovnici[pracoviste][oddeleni];
+
+  for(var i=0;i<seznam.length;i++){
+    var option = document.createElement("option");
+    option.value = seznam[i];
+    option.textContent = seznam[i];
+    select.appendChild(option);
+  }
+}
 
 function vykresliOblasti(){
   var box = document.getElementById("oblastiFormulare");
@@ -170,6 +240,7 @@ function sestavProtokolHtml(logoSrc){
   var cj = vytvorCj();
   var datum = document.getElementById("datum").value;
   var pracoviste = document.getElementById("pracoviste").value;
+  var oddeleni = document.getElementById("oddeleni").value;
   var urednik = document.getElementById("urednik").value;
   var funkce = document.getElementById("funkce").value;
   var jmeno = document.getElementById("jmeno").value;
@@ -178,7 +249,6 @@ function sestavProtokolHtml(logoSrc){
   var casUkonceni = document.getElementById("casUkonceni").value;
 
   var logo = logoSrc || "logo-upcr.png";
-
   var textPoradenstvi = "";
 
   for(var i=0;i<oblasti.length;i++){
@@ -223,6 +293,7 @@ function sestavProtokolHtml(logoSrc){
     "kontaktní pracoviště Krnov, oddělení dávek HN</p>" +
 
     "<p>• jméno a příjmení: " + urednik + "<br>" +
+    "• oddělení: " + oddeleni + "<br>" +
     "• funkce: " + funkce + "</p>" +
 
     "<p><strong>Účastník řízení:</strong></p>" +
@@ -349,6 +420,7 @@ function vymaz(){
 
 window.onload = function(){
   vykresliOblasti();
+  aktualizujPracovniky();
 
   var dnes = new Date();
 
