@@ -156,14 +156,9 @@
 <script>
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", function () {
-        navigator.serviceWorker
-            .register("./service-worker.js?v=1.6")
-            .then(function () {
-                console.log("Service Worker registrován");
-            })
-            .catch(function (err) {
-                console.log("Chyba Service Worker:", err);
-            });
+        navigator.serviceWorker.register("./service-worker.js?v=1.7").then(function(registration){
+            registration.update();
+        });
     });
 }
 </script>
