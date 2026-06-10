@@ -1,0 +1,22 @@
+{
+  "name": "Interaktivní protokol DSSP",
+  "short_name": "Protokol DSSP",
+  "description": "Interaktivní formulář pro tvorbu protokolu DSSP",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0F0888",
+  "icons": [
+    {
+      "src": "logo-upcr.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "logo-upcr.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
